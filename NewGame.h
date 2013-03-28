@@ -1,11 +1,7 @@
-#ifndef MainMenu_h
-#define MainMenu_h
+#ifndef NewGame_h
+#define NewGame_h
 
 #include <irrlicht.h>
-#include <iostream>
-
-using std::cout;
-using std::endl;
 
 using namespace irr;
 using namespace gui;
@@ -13,17 +9,22 @@ using namespace core;
 using namespace video;
 using namespace scene;
 
+#include <iostream>
+
+using std::cout;
+using std::endl;
+
 #include "AbstractState.h"
 
-class MainMenu : public AbstractState{
+class NewGame : public AbstractState{
 	ICameraSceneNode* camera;
+	ISceneNode* gameRootNode;
 	IGUIEnvironment* gui;
-	ISceneNode* mainMenuNode;
-	//bool visible;
+	ISceneManager* scene;
 public:
-	MainMenu();
-	virtual bool init();
+	NewGame();
 	virtual void setVisible(bool flg);
+	virtual bool init();
 };
 
 #endif

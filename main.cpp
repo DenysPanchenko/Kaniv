@@ -9,62 +9,69 @@ using namespace io;
 
 #ifdef _IRR_WINDOWS_
 #pragma comment(lib, "Irrlicht.lib")
+#pragma comment(lib, "/audiere.lib")
 #pragma comment(linker, "/subsystem:windows /ENTRY:mainCRTStartup")
 #endif
 
+#include <cstdio>
+#include "Global.h"
 #include "MainMenu.h"
+#include "StateManager.h"
 #include "EventReceiver.h"
 
-ISceneNode* skyBox;
+#include "audiere.h"
 
-int main(){
-	EventReceiver eventReceiver;
+using namespace audiere;
+
+int main(int argc, char** argv){
+	freopen("log","w+",stdout); //output to log file
+
+	//log
+	cout << "SPACE BATTLE XPN 2013 log file" << endl;
 
 	//create irrlicht game device
-	IrrlichtDevice* device = createDevice(video::EDT_OPENGL, dimension2d<u32> (1024,768), 16, false, false, false, &eventReceiver);
-	if(!device) //device isn't created => exit the program
+	device = createDevice(video::EDT_OPENGL, dimension2d<u32>(SCREEN_WIDTH, SCREEN_HEIGHT), 16, false, false, false);
+	if(!device){ //device isn't created => exit the program
+		cout << "main: Failed to create device" << endl;
 		return -1;
+	}
+
+	//log
+	cout << "Device created. EDT_OPENGL driver. Resolution: " << 
+		SCREEN_WIDTH << "x" << SCREEN_HEIGHT << endl;
 
 	device->setWindowCaption(L"Space Battle XPN 2013");
 
 	IVideoDriver* driver = device->getVideoDriver();
 	ISceneManager* scene = device->getSceneManager();
 	IGUIEnvironment* gui = device->getGUIEnvironment();
-	//scene->getParameters()->setAttribute(scene::COLLADA_CREATE_SCENE_INSTANCES, true);
 
-	//ISceneNode* nCamera = scMngr->addCameraSceneNode(0,core::vector3df(1,1,1),core::vector3df(0,0,0), -1);
-	/*
-	scene->addLightSceneNode(0, core::vector3df(200,200,200),
-		video::SColorf(1.0f,1.0f,1.0f),2000);
-	scene->setAmbientLight(video::SColorf(0.3f,0.3f,0.3f));
-	*/
-	/*
-	ISceneNode* mainMenuNode = scMngr->addEmptySceneNode();
-	MainMenu mainMenu(mainMenuNode);
+	//log
+	cout << "Loading fonts" << endl;
 
-	
-	ITexture* captionTexture = vDriver->getTexture("/caption2.png");
-	if(!captionTexture)
-		return -1;
-	IGUIImage* captionImage = guiEnv->addImage(core::rect<s32>(10,10,1100,500));
-	captionImage->setImage(captionTexture);
-	vDriver->removeTexture(captionTexture);
-	*/
+    IGUIFont* defaultFont = 0;
+	IFileSystem* fileSystem = device->getFileSystem();
+	if(!fileSystem->existFile("/font.zip")){
+		cout << "main: Failed to load font, archive does not exists" << endl;
+	} else {
+		fileSystem->addZipFileArchive("/font.zip");
+		defaultFont = gui->getFont("/myfont.xml");
+		if(!defaultFont){
+			cout << "main: Failed to load font from archive" << endl;
+		} else {
+			defaultFont->grab();
+			gui->getSkin()->setFont(defaultFont);
+			cout << "Font successfully loaded" << endl;
+		}
+	}
 
-    IGUIFont* m_defaultFont = 0;
-	IFileSystem* m_fileSystem = device->getFileSystem();
-    if(m_fileSystem->existFile("/font.zip"))
-    {
-        m_fileSystem->addZipFileArchive("/font.zip");
-        m_defaultFont = gui->getFont("/myfont.xml");
-        if(m_defaultFont)
-        {
-            m_defaultFont->grab();
-            gui->getSkin()->setFont(m_defaultFont);
-        } else printf("Error loading font");
-    }
-    if(!m_defaultFont)
-        printf("Error loading defaults.zip\n");
+	//launch music
+	AudioDevicePtr deviceA(OpenDevice());
+	OutputStreamPtr mySound(OpenSound(deviceA, "/mainmenu.flac", true));
+	mySound->setVolume(0.5f);
+	mySound->setPan(0);
+	mySound->setRepeat(1);
+	//mySound->play();
  
    /*
 	IGUIStaticText* caption = guiEnv->addStaticText(L"SPACE BATTLE",rect<s32>(10,10, 1014,200), true);
@@ -73,16 +80,24 @@ int main(){
     caption->setOverrideColor(SColor(255,255,255,255));
 	*/
 	
-	MainMenu mm(driver, gui, scene, 1024, 768);	
+	//MainMenu mm(driver, gui, scene, 1024, 768);	
 	//mm.setVisible(false);
 	//mm.setVisible(true);
 	
+	StateManager* state = new StateManager();
+	if(!state){ //state manager keeps all game states, without it game won't work
+		cout << "main: Failed to create StateManager" << endl;
+		return -1;
+	} else {
+		if(!state->init())
+			cout << "main: Error in StateManger::init()" << endl;
+		//log
+		cout << "StateManger successfully created and initialized" << endl;
+	}
+
 	
-	ICameraSceneNode* cam = scene->addCameraSceneNode();
-	cam->setPosition(vector3df(0,0,50));
-    cam->setFarValue(20000.f);
-	cam->setTarget(core::vector3df(0,0,0));
-	scene->setActiveCamera(cam);
+	EventReceiver eventReceiver(state);
+	device->setEventReceiver(&eventReceiver);
 
 
 	/*
@@ -93,15 +108,44 @@ int main(){
 	camera->setTarget(core::vector3df(0,30,0));
 
 	scene->setActiveCamera(camera);
-
-	
 	*/
 		
+	//log
+	cout << "Launching the main loop" << endl;
+
+	u32 then = device->getTimer()->getTime();
+	//const f32 MOVEMENT_SPEED = 1000.f;
+
+	ISceneNode* fighter = scene->getSceneNodeFromId(NEWGAME_ELEMENT::NEWGAME_FIGHTER);
+
 	//main game loop
 	while(device->run() && driver){
+		if(state->getState() == GAME_STATE::GAME_NEWGAME_STATE){
+
+			const u32 now = device->getTimer()->getTime();
+			const f32 frameDeltaTime = (f32)(now - then) / 1000.f; //time in seconds
+			then = now;
+	
+			vector3df fighterPosition = fighter->getPosition();
+	
+			line3df ray = scene->getSceneCollisionManager()->getRayFromScreenCoordinates(
+				eventReceiver.getMouseState().position);
+
+			plane3df plane(fighterPosition, vector3df(0,0,-1));
+			vector3df mousePosition;
+			if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition)){
+				vector3df toMousePosition(mousePosition - fighterPosition);
+				const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
+				if(toMousePosition.getLength() <= availableMovement)
+						fighterPosition = mousePosition; // Jump to the final position
+					else
+				        fighterPosition += toMousePosition.normalize() * availableMovement; // Move towards it
+			}
+			fighter->setPosition(fighterPosition);
+		}
 		driver->beginScene(true, true, 0);
-		scene->drawAll();
-		gui->drawAll();
+			scene->drawAll();
+			gui->drawAll();
 		driver->endScene();
 	}
 
