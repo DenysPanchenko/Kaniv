@@ -19,7 +19,7 @@ class About : public AbstractState{
 	IGUIEnvironment* gui;
 	bool visible;
 public :
-	About();
+	About(IrrlichtDevice* dev);
 	virtual bool init();
 	virtual void setVisible(bool flg);
 	bool isVisible() const;

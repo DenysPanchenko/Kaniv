@@ -1,6 +1,6 @@
 #include "MainMenu.h"
 
-MainMenu::MainMenu(){
+MainMenu::MainMenu(IrrlichtDevice* dev) : AbstractState(dev){
 	//init();
 };
 

@@ -3,11 +3,16 @@
 
 #include "Global.h"
 
+#include <irrlicht.h>
+
+using irr::IrrlichtDevice;
+
 class AbstractState {
 protected:
+	IrrlichtDevice* device;
 	bool visible;
 public:
-	AbstractState(){};
+	AbstractState(IrrlichtDevice* dev = 0) : device(dev) {};
 	virtual bool init() = 0;
 	virtual void setVisible(bool flg) = 0;
 	virtual ~AbstractState(){};

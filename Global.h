@@ -4,9 +4,6 @@
 #include <irrlicht.h>
 
 using irr::f32;
-using irr::IrrlichtDevice;
-
-IrrlichtDevice* device;
 
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 768;

@@ -18,7 +18,7 @@ using std::endl;
 class Settings : public AbstractState {
 	IGUIEnvironment* gui;
 public:
-	Settings();
+	Settings(IrrlichtDevice* dev);
 	virtual void setVisible(bool flg);
 	virtual bool init();
 

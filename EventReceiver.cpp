@@ -1,8 +1,6 @@
 #include "EventReceiver.h"
 
-EventReceiver::EventReceiver(StateManager* st) : stateManager(st){
-	if(!device)
-		cout << "EventReceiver: NULL Device" << endl;
+EventReceiver::EventReceiver(IrrlichtDevice* dev, StateManager* st) : device(dev), stateManager(st){
 	if(!st)
 		cout << "EventReceiver: NULL StateManager" << endl;
 }

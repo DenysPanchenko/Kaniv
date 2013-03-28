@@ -1,6 +1,6 @@
 #include "About.h"
 
-About::About(){
+About::About(IrrlichtDevice* dev) : AbstractState(dev){
 	//init();
 }
 
@@ -22,7 +22,7 @@ bool About::init(){
 		return false;
 	}
 
-	dimension2d<u32> size = captionTexture->getSize();
+	dimension2df size(434, 85);
 	int topMargin = 15;
 
 	IGUIImage* captionImage = gui->addImage(core::rect<s32>(
@@ -30,6 +30,7 @@ bool About::init(){
 		topMargin,
 		width / 2.0 + size.Width / 2.0,
 		topMargin + size.Height)); //centered relative to the fixed resolution
+
 	captionImage->setImage(captionTexture);
 	driver->removeTexture(captionTexture); //free memmory
 

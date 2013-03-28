@@ -16,6 +16,7 @@ public:
 	ActionManager();
 	void fireAction(EMOUSE_INPUT_EVENT me);
 	void fireAction(EKEY_CODE kc);
+	void update(float time);
 	void pause();
 	void resume();
 	void restart();

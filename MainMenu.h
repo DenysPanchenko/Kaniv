@@ -21,7 +21,7 @@ class MainMenu : public AbstractState{
 	ISceneNode* mainMenuNode;
 	//bool visible;
 public:
-	MainMenu();
+	MainMenu(IrrlichtDevice* dev);
 	virtual bool init();
 	virtual void setVisible(bool flg);
 };

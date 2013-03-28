@@ -1,15 +1,15 @@
 #include "StateManager.h"
 
-StateManager::StateManager() {
+StateManager::StateManager(IrrlichtDevice* dev) : device(dev) {
 	//init();
 };
 
 bool StateManager::init(){
-	states.insert(make_pair(GAME_MAINMENU_STATE, (AbstractState*) new MainMenu()));
-	states.insert(make_pair(GAME_NEWGAME_STATE, (AbstractState*) new NewGame()));
-	//states.insert(GAME_SETTINGS, new Settings(device));
+	states.insert(make_pair(GAME_MAINMENU_STATE, (AbstractState*) new MainMenu(device)));
+	states.insert(make_pair(GAME_NEWGAME_STATE, (AbstractState*) new NewGame(device)));
+	states.insert(make_pair(GAME_SETTINGS_STATE, (AbstractState*) new Settings(device)));
 	//states.insert(GAME_HELP, new Help(device));
-	states.insert(make_pair(GAME_ABOUT_STATE, (AbstractState*) new About()));
+	states.insert(make_pair(GAME_ABOUT_STATE, (AbstractState*) new About(device)));
 	std::map<GAME_STATE, AbstractState*>::iterator iter = states.begin();
 	for(; iter != states.end(); iter++)
 		if(!iter->second){

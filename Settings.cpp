@@ -1,6 +1,6 @@
 #include "Settings.h"
 
-Settings::Settings() {
+Settings::Settings(IrrlichtDevice* dev) : AbstractState(dev){
 	
 }
 
@@ -23,13 +23,13 @@ bool Settings::init(){
 	//set up gui elemetns
 	//----------------------
 
-	ITexture* captionTexture = driver->getTexture("/about.png");
+	ITexture* captionTexture = driver->getTexture("/settings.png");
 	if(!captionTexture){
 		cout << "About: Failed to load title" << endl;
 		return false;
 	}
 
-	dimension2d<u32> size = captionTexture->getSize();
+	dimension2df size(434, 85);
 	int topMargin = 15;
 
 	IGUIImage* captionImage = gui->addImage(core::rect<s32>(
@@ -37,21 +37,24 @@ bool Settings::init(){
 		topMargin,
 		width / 2.0 + size.Width / 2.0,
 		topMargin + size.Height)); //centered relative to the fixed resolution
+
 	captionImage->setImage(captionTexture);
 	driver->removeTexture(captionTexture); //free memmory
 
 	gui->addStaticText(L"13",rect<s32>(
 		10,10,100,100),true);
 
-	int buttonWidth = 500;
-	int buttonHeight = 50;
 	int bottomMargin = 50;
-	gui->addButton(rect<s32>(
-		width / 2.0 - buttonWidth / 2.0,
-		height - bottomMargin - buttonHeight,
-		width / 2.0 + buttonWidth / 2.0,
+	IGUIButton* back = gui->addButton(rect<s32>(
+		width / 2.0 - BUTTON_WIDTH / 2.0,
+		height - bottomMargin - BUTTON_HEIGHT,
+		width / 2.0 + BUTTON_WIDTH / 2.0,
 		height - bottomMargin),
-		0, SETTINGS_ELEMENT::SETTINGS_BACK_BUTTON, L"BACK", L"Return to main menu");
+		0, ABOUT_ELEMENT::ABOUT_BACK_BUTTON, L"BACK", L"Return to main menu");
+	back->setUseAlphaChannel(true);
+	back->setDrawBorder(false);
+	back->setImage(driver->getTexture("/inactive.png"));
+	back->setPressedImage(driver->getTexture("/active.png"));
 
 	gui->saveGUI("settings_gui.xml");
 	return false;

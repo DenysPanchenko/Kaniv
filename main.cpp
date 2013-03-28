@@ -30,11 +30,14 @@ int main(int argc, char** argv){
 	cout << "SPACE BATTLE XPN 2013 log file" << endl;
 
 	//create irrlicht game device
-	device = createDevice(video::EDT_OPENGL, dimension2d<u32>(SCREEN_WIDTH, SCREEN_HEIGHT), 16, false, false, false);
+
+	IrrlichtDevice* device = createDevice(video::EDT_OPENGL, dimension2d<u32>(SCREEN_WIDTH, SCREEN_HEIGHT), 16, false, false, false);
 	if(!device){ //device isn't created => exit the program
 		cout << "main: Failed to create device" << endl;
 		return -1;
 	}
+
+	//GLOBAL::init(device);
 
 	//log
 	cout << "Device created. EDT_OPENGL driver. Resolution: " << 
@@ -49,6 +52,7 @@ int main(int argc, char** argv){
 	//log
 	cout << "Loading fonts" << endl;
 
+	//loading font
     IGUIFont* defaultFont = 0;
 	IFileSystem* fileSystem = device->getFileSystem();
 	if(!fileSystem->existFile("/font.zip")){
@@ -84,7 +88,7 @@ int main(int argc, char** argv){
 	//mm.setVisible(false);
 	//mm.setVisible(true);
 	
-	StateManager* state = new StateManager();
+	StateManager* state = new StateManager(device);
 	if(!state){ //state manager keeps all game states, without it game won't work
 		cout << "main: Failed to create StateManager" << endl;
 		return -1;
@@ -96,7 +100,7 @@ int main(int argc, char** argv){
 	}
 
 	
-	EventReceiver eventReceiver(state);
+	EventReceiver eventReceiver(device, state);
 	device->setEventReceiver(&eventReceiver);
 
 

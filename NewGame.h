@@ -14,6 +14,7 @@ using namespace scene;
 using std::cout;
 using std::endl;
 
+#include "GameUnits\Fighter.h"
 #include "AbstractState.h"
 
 class NewGame : public AbstractState{
@@ -22,7 +23,7 @@ class NewGame : public AbstractState{
 	IGUIEnvironment* gui;
 	ISceneManager* scene;
 public:
-	NewGame();
+	NewGame(IrrlichtDevice* dev);
 	virtual void setVisible(bool flg);
 	virtual bool init();
 };

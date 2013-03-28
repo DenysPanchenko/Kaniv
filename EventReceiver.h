@@ -14,6 +14,7 @@ using namespace video;
 using namespace io;
 
 class EventReceiver : public IEventReceiver{
+	IrrlichtDevice* device;
 	StateManager* stateManager;
 public:
 	struct MouseState{
@@ -23,7 +24,7 @@ public:
 		MouseState() : leftButtonDown(false), rightButtonDown(false){};
 	} currentMouseState;
 
-	EventReceiver(StateManager* st = 0);
+	EventReceiver(IrrlichtDevice* dev = 0, StateManager* st = 0);
 	virtual bool OnEvent(const SEvent& ev);
 	MouseState getMouseState() const;
 };

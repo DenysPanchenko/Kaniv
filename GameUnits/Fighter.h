@@ -5,17 +5,23 @@
 
 using namespace irr;
 using namespace core;
+using namespace video;
 using namespace scene;
 
 #include "../Global.h"
 
-class Fighter : public IMeshSceneNode{
+class Fighter {
+	IrrlichtDevice* device;
+	IMeshSceneNode* ship;
 public:
-	Fighter(ISceneNode* prnt = 0,
-			ISceneManager* mng = device->getSceneManager(), 
+	Fighter(IrrlichtDevice* dev,
+			ISceneNode* parent = 0,
+			ISceneManager* scene = 0, 
 			s32 id = NEWGAME_ELEMENT::NEWGAME_FIGHTER,
 			vector3df pos = vector3df(0,0,0),
 			vector3df rot = vector3df(-30,0,0));
+	//void fire();
+	//void fire();
 };
 
 #endif

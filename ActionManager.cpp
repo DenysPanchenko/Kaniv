@@ -22,3 +22,6 @@ void ActionManager::resume(){
 
 void ActionManager::restart(){
 };
+
+void ActionManager::update(float time){
+}
