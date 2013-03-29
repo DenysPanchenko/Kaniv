@@ -29,7 +29,7 @@ bool Settings::init(){
 		return false;
 	}
 
-	dimension2df size(434, 85);
+	dimension2df size(619, 94);
 	int topMargin = 15;
 
 	IGUIImage* captionImage = gui->addImage(core::rect<s32>(
@@ -40,9 +40,6 @@ bool Settings::init(){
 
 	captionImage->setImage(captionTexture);
 	driver->removeTexture(captionTexture); //free memmory
-
-	gui->addStaticText(L"13",rect<s32>(
-		10,10,100,100),true);
 
 	int bottomMargin = 50;
 	IGUIButton* back = gui->addButton(rect<s32>(

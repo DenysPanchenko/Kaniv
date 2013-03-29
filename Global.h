@@ -4,6 +4,10 @@
 #include <irrlicht.h>
 
 using irr::f32;
+using irr::u32;
+
+const u32 RESPONSE_TIME = 500;
+const int ROCKET_THRESHOLD = 1000;
 
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 768;

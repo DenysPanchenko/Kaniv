@@ -11,6 +11,7 @@ EventReceiver::MouseState EventReceiver::getMouseState() const {
 
 bool EventReceiver::OnEvent(const SEvent& event){
 	if(event.EventType == EET_MOUSE_INPUT_EVENT){
+		stateManager->mouseInputEvent(event.MouseInput.Event);
 		switch(event.MouseInput.Event){
 		case EMIE_LMOUSE_PRESSED_DOWN:
 			currentMouseState.leftButtonDown = true;

@@ -15,9 +15,12 @@ using std::cout;
 using std::endl;
 
 #include "GameUnits\Fighter.h"
+#include "ActionManager.h"
 #include "AbstractState.h"
 
 class NewGame : public AbstractState{
+	Fighter* fighter;
+	ActionManager* actionManager;
 	ICameraSceneNode* camera;
 	ISceneNode* gameRootNode;
 	IGUIEnvironment* gui;
@@ -26,6 +29,8 @@ public:
 	NewGame(IrrlichtDevice* dev);
 	virtual void setVisible(bool flg);
 	virtual bool init();
+	void mouseInputEvent(EMOUSE_INPUT_EVENT event);
+	void update(s32 time);
 };
 
 #endif

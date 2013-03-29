@@ -25,6 +25,8 @@ public:
 	bool init();
 	void setState(GAME_STATE st);
 	GAME_STATE getState() const;
+	void update(u32 time);
+	void mouseInputEvent(EMOUSE_INPUT_EVENT event);
 };
 
 #endif

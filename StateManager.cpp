@@ -51,3 +51,13 @@ void StateManager::setCursor(){
 	else
 		device->getCursorControl()->setVisible(true);
 }
+
+void StateManager::update(u32 time){
+	if(currentState == GAME_NEWGAME_STATE)
+		((NewGame*)states[currentState])->update(time);
+}
+
+void StateManager::mouseInputEvent(EMOUSE_INPUT_EVENT event){
+	if(currentState == GAME_STATE::GAME_NEWGAME_STATE)
+		((NewGame*)states[currentState])->mouseInputEvent(event);
+}

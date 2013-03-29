@@ -1,6 +1,7 @@
 #include "Fighter.h"
 
-Fighter::Fighter(IrrlichtDevice* device, ISceneNode* parent, ISceneManager* scene, s32 id, vector3df pos, vector3df rot) {
+Fighter::Fighter(IrrlichtDevice* dev, ISceneNode* parent, ISceneManager* scene, s32 id, vector3df pos, vector3df rot) {
+	device = dev;
 	//create fighter mesh
 	IMesh* fighter = scene->getMesh("/fighter.irrmesh");
 	ship = scene->addMeshSceneNode(fighter,
@@ -35,7 +36,7 @@ Fighter::Fighter(IrrlichtDevice* device, ISceneNode* parent, ISceneManager* scen
 
 	IParticleFadeOutAffector* paf = left->createFadeOutParticleAffector();
 	paf->setFadeOutTime(1000);
-
+		
 	left->addAffector(paf);
 	right->addAffector(paf);
 
@@ -52,4 +53,38 @@ Fighter::Fighter(IrrlichtDevice* device, ISceneNode* parent, ISceneManager* scen
     left->setMaterialFlag(video::EMF_ZWRITE_ENABLE, false);
     left->setMaterialTexture(0, device->getVideoDriver()->getTexture("/brightfire.jpg"));
     left->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR);
+
+	//add left rocket
+	LEFT_ROCKET_ID = -100;
+	RIGHT_ROCKET_ID = -101;
+
+	ISceneNode* leftRocket = scene->addMeshSceneNode(
+		scene->getMesh("/rocket.irrmesh"),
+		ship,
+		LEFT_ROCKET_ID,
+		vector3df(-17.3, -7.8, -9.5),
+		vector3df(30.0,0.0,0.0));
+
+	//add right rocket
+	ISceneNode* rightRocket = scene->addMeshSceneNode(
+		scene->getMesh("/rocket.irrmesh"),
+		ship,
+		RIGHT_ROCKET_ID,
+		vector3df(16.5, -7.0, -10.5),
+		vector3df(30.0,0.0,0.0));
+}
+
+vector3df Fighter::getLeftRocketPosition(){
+	return ship->getPosition();
+}
+
+vector3df Fighter::getRightRocketPosition(){
+	return device->getSceneManager()->getSceneNodeFromId(RIGHT_ROCKET_ID)->getPosition();
+}
+
+void Fighter::leftShot(){
+	//scene->getSceneNodeFromId(LEFT_ROCKET_NODE)->setVisible(false);
+}
+
+void Fighter::rightShot(){
 }

@@ -11,6 +11,8 @@ using namespace scene;
 #include "../Global.h"
 
 class Fighter {
+	s32 LEFT_ROCKET_ID;
+	s32 RIGHT_ROCKET_ID;
 	IrrlichtDevice* device;
 	IMeshSceneNode* ship;
 public:
@@ -20,6 +22,10 @@ public:
 			s32 id = NEWGAME_ELEMENT::NEWGAME_FIGHTER,
 			vector3df pos = vector3df(0,0,0),
 			vector3df rot = vector3df(-30,0,0));
+	vector3df getLeftRocketPosition();
+	vector3df getRightRocketPosition();
+	void leftShot();
+	void rightShot();
 	//void fire();
 	//void fire();
 };

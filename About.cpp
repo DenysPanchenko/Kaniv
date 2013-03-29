@@ -34,10 +34,17 @@ bool About::init(){
 	captionImage->setImage(captionTexture);
 	driver->removeTexture(captionTexture); //free memmory
 
-	gui->addStaticText(L"13",rect<s32>(
-		10,10,100,100),true);
-
 	int bottomMargin = 50;
+
+	int x1 = 50, y1 = topMargin + size.Height + topMargin;
+	int x2 = width - 50, y2 = height - bottomMargin - BUTTON_HEIGHT - topMargin;
+
+	IGUIStaticText* text = gui->addStaticText(
+		L"Space Battle\nGame created by\nDenis Panchenko\nmail: actor07@ukr.net\nXPN 2013 Kiev",
+		rect<s32>(x1, y1, x2, y2),true);
+	text->setOverrideColor(SColor(255,255,255,255));
+	text->enableOverrideColor(true);
+	
 	IGUIButton* back = gui->addButton(rect<s32>(
 		width / 2.0 - BUTTON_WIDTH / 2.0,
 		height - bottomMargin - BUTTON_HEIGHT,

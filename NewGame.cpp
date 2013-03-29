@@ -11,6 +11,7 @@ bool NewGame::init(){
 
 	//create root node for level scene
 	gameRootNode = scene->addEmptySceneNode(0, NEWGAME_ELEMENT::NEWGAME_ROOT_NODE);
+	actionManager = new ActionManager(device, gameRootNode);
 
 	//create skybox with background texture
 	ISceneNode* background = scene->addSkyBoxSceneNode(
@@ -28,7 +29,7 @@ bool NewGame::init(){
 	}
 
 	//create fighter
-	Fighter* fighter = new Fighter(device, gameRootNode, scene);
+	fighter = new Fighter(device, gameRootNode, scene);
 
 	//create a camera and add it to scene
 	camera = scene->addCameraSceneNode(gameRootNode);
@@ -47,4 +48,12 @@ void NewGame::setVisible(bool flg){
 		gui->loadGUI("newgame_gui.xml");
 		device->getSceneManager()->setActiveCamera(camera);
 	}
+}
+
+void NewGame::mouseInputEvent(EMOUSE_INPUT_EVENT event){
+	actionManager->fireAction(event);
+}
+
+void NewGame::update(s32 time){
+	actionManager->update(time);
 }

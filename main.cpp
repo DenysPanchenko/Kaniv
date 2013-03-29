@@ -125,10 +125,11 @@ int main(int argc, char** argv){
 	//main game loop
 	while(device->run() && driver){
 		if(state->getState() == GAME_STATE::GAME_NEWGAME_STATE){
-
 			const u32 now = device->getTimer()->getTime();
 			const f32 frameDeltaTime = (f32)(now - then) / 1000.f; //time in seconds
 			then = now;
+
+			state->update(now);
 	
 			vector3df fighterPosition = fighter->getPosition();
 	
