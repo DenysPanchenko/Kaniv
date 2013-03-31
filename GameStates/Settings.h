@@ -1,7 +1,7 @@
 #ifndef Settings_h
 #define Settings_h
 
-#include "AbstractState.h"
+#include "../GameStates/AbstractState.h"
 
 #include <irrlicht.h>
 

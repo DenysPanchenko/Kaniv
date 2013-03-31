@@ -8,7 +8,7 @@ using namespace core;
 using namespace video;
 using namespace scene;
 
-#include "../Global.h"
+#include "../Core/Global.h"
 
 class Fighter {
 	s32 LEFT_ROCKET_ID;

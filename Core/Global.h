@@ -5,14 +5,18 @@
 
 using irr::f32;
 using irr::u32;
+using irr::s32;
 
 const u32 RESPONSE_TIME = 500;
-const int ROCKET_THRESHOLD = 1000;
+const s32 ROCKET_ID = 1000;
+const f32 ROCKET_SPEED = 0.2;
+
+const s32 ENEMY_CRAFT_THRESHOLD = -1000;
 
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 768;
 
-const f32 MOVEMENT_SPEED = 1000.f;
+const f32 FIGHTER_SPEED = 1000.f;
 
 const int BUTTON_WIDTH  = 494;
 const int BUTTON_HEIGHT =  94;

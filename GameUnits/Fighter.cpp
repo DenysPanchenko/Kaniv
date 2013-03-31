@@ -22,9 +22,9 @@ Fighter::Fighter(IrrlichtDevice* dev, ISceneNode* parent, ISceneManager* scene, 
 	IParticleEmitter* emitter = left->createBoxEmitter(
 		aabbox3df(-1,0,-1,1,1,1),
 		vector3df(0.0f, -0.03f, 0.0f),
-		400, 800,
+		600, 1000,
 		SColor(0,255,255,255),SColor(0,255,255,255),
-		400, 800, 0,
+		400, 600, 0,
 		dimension2df(5,5), dimension2df(5,5)
 		);
 

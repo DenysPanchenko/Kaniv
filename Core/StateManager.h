@@ -5,11 +5,11 @@
 
 using namespace irr;
 
-#include "About.h"
-#include "NewGame.h"
-#include "MainMenu.h"
-#include "Settings.h"
-#include "AbstractState.h"
+#include "../GameStates/About.h"
+#include "../GameStates/NewGame.h"
+#include "../GameStates/MainMenu.h"
+#include "../GameStates/Settings.h"
+#include "../GameStates/AbstractState.h"
 
 #include <map>
 

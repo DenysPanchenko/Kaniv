@@ -11,7 +11,7 @@ bool NewGame::init(){
 
 	//create root node for level scene
 	gameRootNode = scene->addEmptySceneNode(0, NEWGAME_ELEMENT::NEWGAME_ROOT_NODE);
-	actionManager = new ActionManager(device, gameRootNode);
+	
 
 	//create skybox with background texture
 	ISceneNode* background = scene->addSkyBoxSceneNode(
@@ -31,11 +31,14 @@ bool NewGame::init(){
 	//create fighter
 	fighter = new Fighter(device, gameRootNode, scene);
 
+	actionManager = new ActionManager(device, gameRootNode);
+
 	//create a camera and add it to scene
 	camera = scene->addCameraSceneNode(gameRootNode);
 	camera->setPosition(vector3df(0,0,-150));
 	camera->setTarget(vector3df(0,0,0));
 
+	
 	return true;
 }
 

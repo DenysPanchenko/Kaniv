@@ -14,9 +14,9 @@ using namespace scene;
 using std::cout;
 using std::endl;
 
-#include "GameUnits\Fighter.h"
-#include "ActionManager.h"
 #include "AbstractState.h"
+#include "../Core/ActionManager.h"
+#include "../GameUnits/Fighter.h"
 
 class NewGame : public AbstractState{
 	Fighter* fighter;
