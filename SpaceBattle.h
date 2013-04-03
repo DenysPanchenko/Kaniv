@@ -11,7 +11,6 @@ using namespace core;
 using namespace scene;
 using namespace video;
 
-
 #ifdef _IRR_WINDOWS_
 #pragma comment(lib, "Irrlicht.lib")
 #pragma comment(lib, "/audiere.lib")
@@ -34,7 +33,12 @@ class SpaceBattle {
 	StateManager* stateManager;
 	EventReceiver* eventReceiver;
 
+	f32 splashTime;
+	ISceneNode* tmp;
+	bool isSplashShown;
+
 	void loadFont();
+	void showSplash(u32 time);
 public:
 	SpaceBattle(int argc, char** argv);
 	~SpaceBattle();

@@ -4,13 +4,20 @@
 #include <irrlicht.h>
 
 using namespace irr;
+using namespace gui;
 using namespace core;
 using namespace scene;
 
 #include "Global.h"
+#include "audiere.h"
 #include "../ParticleExplosion/CMain.h"
 #include "../GameUnits/Fighter.h"
 #include "../GameUnits/Rocket.h"
+#include "../GameUnits/Craft.h"
+#include "../GameUnits/Pinky.h"
+#include "EnemyGenerator.h"
+
+using namespace audiere;
 
 #include <iostream>
 using namespace std;
@@ -27,39 +34,59 @@ class MyIAnimationEndCallBack : public irr::scene::IAnimationEndCallBack
 */
 #include <map>
 
-class ActionManager : public ICollisionCallback {//: public IAnimationEndCallBack{
+class ActionManager {//: public IAnimationEndCallBack{
+	ISceneNode* rootNode;
+	ISceneNode* fighter;
+	IrrlichtDevice* device;
+
 	bool leftPressed; //state of left mouse button
 	bool rightPressed; //state of right mouse button
 	bool spacePressed; //state of space keyboard button
+	bool isKeyDown[KEY_KEY_CODES_COUNT];
+
 	u32 currentTime; //current game time
 	u32 leftShotTime;
 	u32 rightShotTime;
-	bool isKeyDown[KEY_KEY_CODES_COUNT];
-	array<Rocket*> rocketPool;
-	IrrlichtDevice* device;
-	ISceneNode* rootNode;
-	ITriangleSelector* selector;
-	void destroyRocket();
-	array<IAnimatedMeshSceneNode*> projectilePool;
-	array<ISceneNode*> craftPool;
-	//std::map<ISceneNode*, ISceneNode*> actors;
-	//MyIAnimationEndCallBack end;
+
+	EnemyGenerator* enemyGenerator;
+	array<Craft*> craftPool;
+	array<Rocket*> projectilePool;
+
+	void generateWave(ENEMYWAVE_TYPE type);
+
+	f32 delay;
+	u32 gameOverTime;
+	bool inGame;
+
+	int currentScore;
+	ITextSceneNode* score;
+
+	AudioDevicePtr deviceA;
+	SoundEffectPtr rocketSound;
+	SoundEffectPtr explosionSound;
+	
+
+	void createExplosion(const vector3df& position, int size);
+	void gameOverDelay();
+	void checkForCapture();
+	void collisionHandling();
+	void collisionCraftVsCraft();
+	void collisionProjectileVsCraft();
+	void collisionProjectileVsProjectile();
+	void removeInvisibleProjectiles();
+	void launchRocket(const vector3df& position, const vector3df& rotation);
+	bool collisionCheck(ISceneNode* obj_1, ISceneNode* obj_2);
 public:
-	ActionManager(IrrlichtDevice* dev, ISceneNode* root);
+	ActionManager(IrrlichtDevice* dev, ISceneNode* root, Craft* f);
+	~ActionManager();
 	void fireAction(EMOUSE_INPUT_EVENT me);
 	void fireAction(EKEY_CODE kc);
-	void update(u32 time);
+	void update(u32 time);	
 	void pause();
 	void resume();
-	void restart();
-	void launchRocket(const vector3df& position, const vector3df& rotation);
-	bool onCollision(const ISceneNodeAnimatorCollisionResponse& animator);
-	bool collisionCheck(ISceneNode* obj_1, ISceneNode* obj_2);
-	/*
-	void OnAnimationEnd(IAnimatedMeshSceneNode* node){
-		node->remove();
-	}
-	*/
+	void start();
+	void stop();
+	void gameOver();
 };
 
 #endif

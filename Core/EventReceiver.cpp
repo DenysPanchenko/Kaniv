@@ -1,8 +1,9 @@
 #include "EventReceiver.h"
 
 EventReceiver::EventReceiver(IrrlichtDevice* dev, StateManager* st) : device(dev), stateManager(st){
-	if(!st)
-		cout << "EventReceiver: NULL StateManager" << endl;
+	audioDevice = OpenDevice();
+	pushButtonSound = OpenSoundEffect(audioDevice, "/button.mp3", MULTIPLE);
+	pushButtonSound->setVolume(1.0);
 }
 
 EventReceiver::MouseState EventReceiver::getMouseState() const {
@@ -10,6 +11,17 @@ EventReceiver::MouseState EventReceiver::getMouseState() const {
 }
 
 bool EventReceiver::OnEvent(const SEvent& event){
+	if(event.EventType == EET_KEY_INPUT_EVENT){
+		switch(event.KeyInput.Key){
+		case KEY_ESCAPE:
+			if(stateManager->getState() == GAME_NEWGAME_STATE)
+				//showExitGameConfirmDialog();
+				stateManager->setState(GAME_MAINMENU_STATE);
+			break;
+		default:
+			break;
+		}
+	}
 	if(event.EventType == EET_MOUSE_INPUT_EVENT){
 		stateManager->mouseInputEvent(event.MouseInput.Event);
 		switch(event.MouseInput.Event){
@@ -42,42 +54,87 @@ bool EventReceiver::OnEvent(const SEvent& event){
 		case EGET_BUTTON_CLICKED:
 			switch(id){
 			case MAINMENU_NEW_GAME_BUTTON:
-				//log
-				cout << "New game button event" << id << endl;
 				stateManager->setState(GAME_NEWGAME_STATE);
 				break;
 			case MAINMENU_SETTINGS_BUTTON:
-				//log
-				cout << "Settings button event" << id << endl;
 				stateManager->setState(GAME_SETTINGS_STATE);
 				break;
 			case MAINMENU_HELP_BUTTON:
-				//log
-				cout << "Help button event" << id << endl;
 				stateManager->setState(GAME_HELP_STATE);
 				break;
 			case MAINMENU_ABOUT_BUTTON:
-				//log
-				cout << "About button event" << id << endl;
 				stateManager->setState(GAME_ABOUT_STATE);
 				break;
 			case MAINMENU_EXIT_BUTTON:
-				//log
-				cout << "Exit button event" << endl;
-				device->drop();	
+				showExitConfirmDialog();
 				break;
 			case ABOUT_BACK_BUTTON:
-				//log
-				cout << "Back from about button event" << id << endl;
 				stateManager->setState(GAME_MAINMENU_STATE);
 				break;
+			case EXIT_OK:
+				device->drop();
+				break;
+			case EXIT_CANCEL:
+				event.GUIEvent.Caller->getParent()->remove();
+				break;
+			case EXIT_NEWGAME_YES:
+				stateManager->setState(GAME_MAINMENU_STATE);
+				break;
+			case EXIT_NEWGAME_NO:
+				event.GUIEvent.Caller->getParent()->remove();
+				break;
 			default:
-				//log
-				cout << "EventReceiver: Undefined push button event" << endl;
 				break;
 			}
+			pushButtonSound->play();
 			break;
+		}
+	} else if(event.EventType == EET_USER_EVENT){
+		if(event.UserEvent.UserData1 == -1){
+			stateManager->setState(GAME_GAMEOVER_STATE);
 		}
 	}
 	return false;
+}
+
+void EventReceiver::showExitConfirmDialog(){
+	IGUIEnvironment* env = device->getGUIEnvironment();
+	IGUIWindow* window = env->addWindow(
+		rect<s32>(224, 200, 800, 390),true, L"Confirm dialog");
+	env->addStaticText(L"Do you want to exit the game?",
+		rect<s32>(35,50,600,150),
+		false, // border?
+		false, // wordwrap?
+		window);
+	for (u32 i=0; i<EGDC_COUNT ; ++i){
+		SColor col = env->getSkin()->getColor((EGUI_DEFAULT_COLOR)i);
+		col.setAlpha(255);
+		env->getSkin()->setColor((EGUI_DEFAULT_COLOR)i, col);
+	}
+	env->addButton(
+		rect<s32>(15, 100, 285, 170), window, EXIT_OK, L"Ok");
+	env->addButton(
+		rect<s32>(300, 100, 555, 170), window, EXIT_CANCEL, L"Cancel");
+}
+
+void EventReceiver::showExitGameConfirmDialog(){
+	/*
+	IGUIEnvironment* env = device->getGUIEnvironment();
+	IGUIWindow* window = env->addWindow(
+		rect<s32>(224, 200, 800, 390),true, L"Confirm dialog");
+	env->addStaticText(L"Stop this battle?",
+		rect<s32>(35,50,600,150),
+		false, // border?
+		false, // wordwrap?
+		window);
+	for (u32 i=0; i<EGDC_COUNT ; ++i){
+		SColor col = env->getSkin()->getColor((EGUI_DEFAULT_COLOR)i);
+		col.setAlpha(255);
+		env->getSkin()->setColor((EGUI_DEFAULT_COLOR)i, col);
+	}
+	env->addButton(
+		rect<s32>(15, 100, 285, 170), window, EXIT_NEWGAME_YES, L"Yes");
+	env->addButton(
+		rect<s32>(300, 100, 555, 170), window, EXIT_NEWGAME_NO, L"No");
+		*/
 }

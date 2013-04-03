@@ -13,12 +13,16 @@ using namespace core;
 using namespace video;
 using namespace scene;
 
+#include "../Core/audiere.h"
 #include "AbstractState.h"
+
+using namespace audiere;
 
 class MainMenu : public AbstractState{
 	ICameraSceneNode* camera;
 	IGUIEnvironment* gui;
 	ISceneNode* mainMenuNode;
+
 	//bool visible;
 public:
 	MainMenu(IrrlichtDevice* dev);

@@ -27,6 +27,7 @@ class NewGame : public AbstractState{
 	ISceneManager* scene;
 public:
 	NewGame(IrrlichtDevice* dev);
+	void remove();
 	virtual void setVisible(bool flg);
 	virtual bool init();
 	void mouseInputEvent(EMOUSE_INPUT_EVENT event);

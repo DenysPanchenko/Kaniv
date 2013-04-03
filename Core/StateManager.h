@@ -5,10 +5,13 @@
 
 using namespace irr;
 
+#include "../Core/audiere.h"
+#include "../GameStates/Help.h"
 #include "../GameStates/About.h"
 #include "../GameStates/NewGame.h"
 #include "../GameStates/MainMenu.h"
 #include "../GameStates/Settings.h"
+#include "../GameStates/GameOver.h"
 #include "../GameStates/AbstractState.h"
 
 #include <map>
@@ -20,6 +23,11 @@ class StateManager {
 	std::map<GAME_STATE, AbstractState*> states;
 	GAME_STATE currentState;
 	void setCursor();
+	void setMusic();
+
+	AudioDevicePtr deviceA;
+	OutputStreamPtr mainMenuMusic;
+	OutputStreamPtr newGameMusic;
 public:
 	StateManager(IrrlichtDevice* dev);
 	bool init();

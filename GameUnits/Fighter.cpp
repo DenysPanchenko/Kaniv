@@ -1,20 +1,18 @@
 #include "Fighter.h"
 
-Fighter::Fighter(IrrlichtDevice* dev, ISceneNode* parent, ISceneManager* scene, s32 id, vector3df pos, vector3df rot) {
-	device = dev;
-	//create fighter mesh
-	IMesh* fighter = scene->getMesh("/fighter.irrmesh");
-	ship = scene->addMeshSceneNode(fighter,
-		parent,
-		NEWGAME_ELEMENT::NEWGAME_FIGHTER,
-		pos, rot);
+Fighter::Fighter(IrrlichtDevice* dev, ISceneNode* parent, ISceneManager* scene, s32 id, vector3df pos, vector3df rot) 
+	: Craft(dev) {
+	IMesh* fighterMesh = scene->getMesh("/fighter.irrmesh");
+	//aabbox3d<f32> box();
+	//fighterMesh->setBoundingBox(box);
+	craft = scene->addMeshSceneNode(fighterMesh, parent, NEWGAME_ELEMENT::NEWGAME_FIGHTER, pos, rot);
 	//fighter->drop(); //raise an error during exiting
 
 	//create left turbine
-	IParticleSystemSceneNode* left = scene->addParticleSystemSceneNode(false, ship,
+	IParticleSystemSceneNode* left = scene->addParticleSystemSceneNode(false, craft,
 		NEWGAME_ELEMENT::NEWGAME_LEFT_TURBINE,vector3df(4,-11,-15),vector3df(-150,0,0));
 	//create right turbine
-	IParticleSystemSceneNode* right = scene->addParticleSystemSceneNode(false, ship,
+	IParticleSystemSceneNode* right = scene->addParticleSystemSceneNode(false, craft,
 		NEWGAME_ELEMENT::NEWGAME_RIGHT_TURBINE,vector3df(-4,-11,-15),vector3df(-150,0,0));
 	//left->setParticleSize(dimension2d<f32>(5.0f, 5.0f));
 
@@ -60,26 +58,26 @@ Fighter::Fighter(IrrlichtDevice* dev, ISceneNode* parent, ISceneManager* scene, 
 
 	ISceneNode* leftRocket = scene->addMeshSceneNode(
 		scene->getMesh("/rocket.irrmesh"),
-		ship,
+		craft,
 		LEFT_ROCKET_ID,
-		vector3df(-17.3, -7.8, -9.5),
+		vector3df(-16.5f, -7.8f, -10.5f),
 		vector3df(30.0,0.0,0.0));
 
 	//add right rocket
 	ISceneNode* rightRocket = scene->addMeshSceneNode(
 		scene->getMesh("/rocket.irrmesh"),
-		ship,
+		craft,
 		RIGHT_ROCKET_ID,
-		vector3df(16.5, -7.0, -10.5),
+		vector3df(16.5f, -7.0f, -10.5f),
 		vector3df(30.0,0.0,0.0));
 }
 
-vector3df Fighter::getLeftRocketPosition(){
-	return ship->getPosition();
+const vector3df& Fighter::getLeftRocketPosition(){
+	return vector3df(-17.3f, -7.8f, -9.5f);
 }
 
-vector3df Fighter::getRightRocketPosition(){
-	return device->getSceneManager()->getSceneNodeFromId(RIGHT_ROCKET_ID)->getPosition();
+const vector3df& Fighter::getRightRocketPosition(){
+	return vector3df (16.5f, -7.0f, -10.5f);
 }
 
 void Fighter::leftShot(){
@@ -87,4 +85,9 @@ void Fighter::leftShot(){
 }
 
 void Fighter::rightShot(){
+}
+
+Fighter::~Fighter(){
+//	craft->removeAll();
+//	craft->remove();
 }

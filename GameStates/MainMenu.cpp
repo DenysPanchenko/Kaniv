@@ -1,10 +1,11 @@
 #include "MainMenu.h"
 
 MainMenu::MainMenu(IrrlichtDevice* dev) : AbstractState(dev){
-	//init();
 };
 
 bool MainMenu::init(){
+
+
 	gui = device->getGUIEnvironment();
 	IVideoDriver* driver = device->getVideoDriver();
 	ISceneManager* scene = device->getSceneManager();
@@ -12,19 +13,6 @@ bool MainMenu::init(){
 	//----------------------------------
 	//set up gui elements
 	//----------------------------------
-
-	/*
-	//create main menu background
-	ITexture* bgrTexture = driver->getTexture("/background.jpg");
-	if(!bgrTexture){
-		cout << "MainMenu: Failed to load background" << endl;
-		return false;
-	}
-
-	IGUIImage* bgrImage = gui->addImage(core::rect<s32>(0,0,width,height)); //fixed resolution by convention
-	bgrImage->setImage(bgrTexture);
-	driver->removeTexture(bgrTexture); //free memmory
-	*/
 	
 	dimension2d<u32> screenResolution = driver->getScreenSize();
 	int height = screenResolution.Height;
@@ -32,34 +20,27 @@ bool MainMenu::init(){
 
 	//create main menu title
 	ITexture* captionTexture = driver->getTexture("/title.png");
-	if(!captionTexture){
-		cout << "MainMenu: Failed to load title" << endl;
-		return false;
-	}
 
-	dimension2d<u32> size = captionTexture->getSize();
 	int titleWidth = 926;
 	int titleHeight = 85;
-
 	int topMargin = 15;
-	int leftMargin = 30;//1.0 * (width - size.Width) / 2;
+	int leftMargin = 30;
 
 	IGUIImage* captionImage = gui->addImage(core::rect<s32>(
 		width / 2.0 - titleWidth / 2.0, topMargin,
-		width / 2.0 + titleWidth / 2.0 ,size.Height)); //centered relative to the fixed resolution
+		width / 2.0 + titleWidth / 2.0 ,titleHeight)); //centered relative to the fixed resolution
 	captionImage->setImage(captionTexture);
 	driver->removeTexture(captionTexture); //free memmory
 
 	//auxiliary variables for buttons positionin
 	int remaining = height - topMargin - titleHeight;
-	
 	int buttonSpan = ((remaining - (BUTTON_HEIGHT * 5)) / 6.0);
 	int buttonTopMargin = topMargin + titleHeight;
-
+	
 	//set up menu buttons	
 	IGUIButton* newGameButton = gui->addButton(rect<s32>(leftMargin, 1.0 * buttonSpan + 0.0 * BUTTON_HEIGHT + buttonTopMargin,
 		leftMargin + BUTTON_WIDTH, 1.0 * (buttonSpan + BUTTON_HEIGHT) + buttonTopMargin),
-		0, MAINMENU_ELEMENT::MAINMENU_NEW_GAME_BUTTON, L"NEW GAME", L"Start new game");
+		0, MAINMENU_ELEMENT::MAINMENU_NEW_GAME_BUTTON, L"NEW GAME",L"Start new game");
 	newGameButton->setUseAlphaChannel(true);
 	newGameButton->setDrawBorder(false);
 	newGameButton->setImage(driver->getTexture("/inactive.png"));
@@ -96,24 +77,22 @@ bool MainMenu::init(){
 	exitButton->setDrawBorder(false);
 	exitButton->setImage(driver->getTexture("/inactive.png"));
 	exitButton->setPressedImage(driver->getTexture("/active.png"));
-
+	
+	//main menu from standard buttons
 	/*
-	gui->addButton(rect<s32>(leftMargin, 2.0 * buttonSpan + 1.0 * buttonHeight + buttonTopMargin,
-		width / 2, 2.0 * (buttonSpan + buttonHeight) + buttonTopMargin),
+	gui->addButton(rect<s32>(leftMargin, 2.0 * buttonSpan + 1.0 * BUTTON_HEIGHT + buttonTopMargin,
+		width / 2, 2.0 * (buttonSpan + BUTTON_HEIGHT) + buttonTopMargin),
 		0, MAINMENU_ELEMENT::MAINMENU_SETTINGS_BUTTON, L"SETTINGS", L"Change game settings");
-	gui->addButton(rect<s32>(leftMargin, 3.0 * buttonSpan + 2.0 * buttonHeight + buttonTopMargin,
-		width / 2, 3.0 * (buttonSpan + buttonHeight) + buttonTopMargin),
+	gui->addButton(rect<s32>(leftMargin, 3.0 * buttonSpan + 2.0 * BUTTON_HEIGHT + buttonTopMargin,
+		width / 2, 3.0 * (buttonSpan + BUTTON_HEIGHT) + buttonTopMargin),
 		0, MAINMENU_ELEMENT::MAINMENU_HELP_BUTTON, L"HELP", L"Game help");
-	gui->addButton(rect<s32>(leftMargin, 4.0 * buttonSpan + 3.0 * buttonHeight + buttonTopMargin,
-		width / 2, 4.0 * (buttonSpan + buttonHeight) + buttonTopMargin),
+	gui->addButton(rect<s32>(leftMargin, 4.0 * buttonSpan + 3.0 * BUTTON_HEIGHT + buttonTopMargin,
+		width / 2, 4.0 * (buttonSpan + BUTTON_HEIGHT) + buttonTopMargin),
 		0, MAINMENU_ELEMENT::MAINMENU_ABOUT_BUTTON, L"ABOUT", L"About the author");
-	gui->addButton(rect<s32>(leftMargin, 5.0 * buttonSpan + 4.0 * buttonHeight + buttonTopMargin,
+	gui->addButton(rect<s32>(leftMargin, 5.0 * buttonSpan + 4.0 * BUTTON_HEIGHT + buttonTopMargin,
 		width / 2, 5.0 * (buttonSpan + buttonHeight) + buttonTopMargin),
 		0, MAINMENU_ELEMENT::MAINMENU_EXIT_BUTTON, L"EXIT", L"Quit the game");
 	*/
-
-	//gui->loadGUI("/gui.xml");
-	
 
 	//----------------------------------
 	//set up scene elements
@@ -132,17 +111,7 @@ bool MainMenu::init(){
 		driver->getTexture("/background.jpg"),
 		mainMenuNode,
 		MAINMENU_ELEMENT::MAINMENU_BACKGROUND);
-	if(!background){
-		cout << "MainMenu: Failed to create background" << endl;
-		return false;
-	}
 
-	//create fighter mesh
-	IMesh* fighter = scene->getMesh("/fighter.irrmesh");
-	if(!fighter){
-		cout << "MainMenu: Failed to load fighter mesh" << endl;
-		return false;
-	}
 	//create an animation under fighter mesh
 	IAnimatedMeshSceneNode* anms = scene->addAnimatedMeshSceneNode(scene->getMesh("/fighter.irrmesh"), 
 		mainMenuNode,
@@ -156,10 +125,7 @@ bool MainMenu::init(){
 		points.push_back(vector3df(-20,-10,-5));
 		points.push_back(vector3df(-20,-13,-5));
 		points.push_back(vector3df(-20,-15,-5));
-		ISceneNodeAnimator* anim = scene->createFollowSplineAnimator(
-				0,
-				points
-			);
+		ISceneNodeAnimator* anim = scene->createFollowSplineAnimator(0,points);
 		if(anim){
 			anms->addAnimator(anim);
 			anim->drop();
@@ -182,12 +148,8 @@ void MainMenu::setVisible(bool flg){
 	mainMenuNode->setVisible(flg);
 	if(!flg){
 		gui->clear();
-	}
-	else{
+	} else {
 		gui->loadGUI("gui.xml");
 		device->getSceneManager()->setActiveCamera(camera);
 	}
-	//for(int i = MAINMENU_ELEMENTS::MAINMENU_TITLE; i <= MAINMENU_ELEMENTS::MAINMENU_EXIT_BUTTON; i++)
-
-		
 }

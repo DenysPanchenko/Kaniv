@@ -3,8 +3,11 @@
 
 #include <irrlicht.h>
 
+#include "audiere.h"
 #include "Global.h"
 #include "StateManager.h"
+
+using namespace audiere;
 
 using namespace irr;
 using namespace core;
@@ -16,6 +19,8 @@ using namespace io;
 class EventReceiver : public IEventReceiver{
 	IrrlichtDevice* device;
 	StateManager* stateManager;
+	AudioDevicePtr audioDevice;
+	SoundEffectPtr pushButtonSound;
 public:
 	struct MouseState{
 		position2di position;
@@ -27,6 +32,8 @@ public:
 	EventReceiver(IrrlichtDevice* dev = 0, StateManager* st = 0);
 	virtual bool OnEvent(const SEvent& ev);
 	MouseState getMouseState() const;
+	void showExitConfirmDialog();
+	void showExitGameConfirmDialog();
 };
 
 #endif
