@@ -8,6 +8,8 @@ EnemyGenerator::EnemyGenerator(GAME_MODE m, IrrlichtDevice* dev, ISceneNode* prn
 	difficulty = Difficulty();
 	difficulty.mode = m;
 	lastGenerationTime = 0;
+	lastDifficultyUpdate = 0;
+	updateDifficultyTime = 10;
 };
 
 void EnemyGenerator::generateWave(ENEMYWAVE_TYPE type, u32 time){
@@ -24,7 +26,7 @@ void EnemyGenerator::generateWave(ENEMYWAVE_TYPE type, u32 time){
 		generateClydeWave(100.f * difficulty.speedFactor);
 		break;
 	case ENEMYWAVE_ENEMY_4:
-		generateInkyWave(0.1f * difficulty.speedFactor);
+		generateInkyWave(0.15f * difficulty.speedFactor);
 		break;
 	case ENEMYWAVE_ASTEROID:
 		break;
@@ -123,9 +125,37 @@ void EnemyGenerator::updateBlinkyQueue(){
 bool EnemyGenerator::isReady(u32 time){
 	currentTime = time;
 	updateBlinkyQueue();
+	if((time - lastDifficultyUpdate) / 1000.f > updateDifficultyTime){
+		difficulty.speedFactor += 0.025;
+		difficulty.generationFrequency += 0.05;
+		lastDifficultyUpdate = time;
+	}
 	if((time - lastGenerationTime) / 1000.f > difficulty.generationFrequency)
 		return true;
 	return false;
+}
+
+void EnemyGenerator::reset(GAME_MODE gameMode){
+	switch(gameMode){
+	case GAME_MODE_EASY:
+		difficulty = Difficulty();
+		break;
+	case GAME_MODE_NORMAL:
+		difficulty = Difficulty();
+		difficulty.speedFactor = 0.2;
+		difficulty.generationFrequency = 1.75;
+		break;
+	case GAME_MODE_HARD:
+		difficulty = Difficulty();
+		difficulty.speedFactor = 0.25;
+		difficulty.generationFrequency = 1.5;
+		break;
+	default:
+		break;
+	}
+	clyde = 0;
+	lastGenerationTime = 0;
+	lastDifficultyUpdate = 0;
 }
 
 EnemyGenerator::~EnemyGenerator(){

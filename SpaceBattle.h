@@ -4,7 +4,6 @@
 #include <irrlicht.h>
 
 using namespace irr;
-
 using namespace io;
 using namespace gui;
 using namespace core;
@@ -22,9 +21,9 @@ using namespace video;
 #include "Core/StateManager.h"
 #include "Core/EventReceiver.h"
 
-using namespace audiere;
+using namespace audiere; //audio library
 
-class SpaceBattle {
+class SpaceBattle { //main game class
 	IrrlichtDevice* device;
 	IVideoDriver*	driver;
 	ISceneManager*	 scene;
@@ -33,12 +32,13 @@ class SpaceBattle {
 	StateManager* stateManager;
 	EventReceiver* eventReceiver;
 
-	f32 splashTime;
-	ISceneNode* tmp;
+	SETTINGS_STRUCT SETTINGS; //general game settings
+	f32 splashTime; //time of splash screen will be displayed
+	ISceneNode* tmp; //scene node for splash screen
 	bool isSplashShown;
 
-	void loadFont();
-	void showSplash(u32 time);
+	void loadFont(); //load font for buttons
+	void showSplash(u32 time); //remove or create splash depending on isSplashShown and splashTime values
 public:
 	SpaceBattle(int argc, char** argv);
 	~SpaceBattle();

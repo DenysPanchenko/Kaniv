@@ -10,11 +10,33 @@ using irr::f32;
 using irr::u32;
 using irr::s32;
 
+#include "audiere.h"
+
+using namespace audiere;
+
+//static float SOUND_VOLUME = 0.0;
+static AudioDevicePtr audioDevice = OpenDevice();
+
 const u32 RESPONSE_TIME = 500;
 const s32 ROCKET_ID = 1000;
 const f32 ROCKET_SPEED = 0.4f;
 
 const s32 ENEMY_CRAFT_THRESHOLD = -1000;
+
+enum GAME_MODE {
+	GAME_MODE_EASY = 701,
+	GAME_MODE_NORMAL,
+	GAME_MODE_HARD
+};
+
+struct SETTINGS_STRUCT {
+	float soundVolume;
+	GAME_MODE gameMode;
+	SETTINGS_STRUCT() {
+		soundVolume = 0.5;
+		gameMode = GAME_MODE_EASY;
+	}
+};
 
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 768;
@@ -25,7 +47,7 @@ const f32 FIGHTER_SPEED = 5000.f;
 const int BUTTON_WIDTH  = 494;
 const int BUTTON_HEIGHT =  94;
 
-const int ENEMY_BUFFER_HEIGHT = 100;
+const int ENEMY_BUFFER_HEIGHT = 25;
 
 enum EXIT_NEWGAME_CONFIRM_DIALOG {
 	EXIT_NEWGAME_YES = 10,
@@ -47,12 +69,6 @@ enum ENEMY_ID {
 enum ENEMY_DIRECTION {
 	ENEMY_LEFT = 0,
 	ENEMY_RIGHT,
-};
-
-enum GAME_MODE {
-	GAME_MODE_EASY = 701,
-	GAME_MODE_NORMAL,
-	GAME_MODE_HARD
 };
 
 enum ENEMYWAVE_TYPE{
@@ -106,7 +122,14 @@ enum SETTINGS_ELEMENT {
 	SETTINGS_ROOT_NODE = 501,
 	SETTINGS_BACKGROUND,
 	SETTINGS_TITLE,
-	SETTINGS_BACK_BUTTON
+	SETTINGS_BACK_BUTTON,
+	SETTINGS_COMBOBOX,
+	SETTINGS_MODE_EASY,
+	SETTINGS_MODE_NORMAL,
+	SETTINGS_MODE_HARD,
+	SETTINGS_SOUND_CHECKBOX,
 };
+
+
 
 #endif

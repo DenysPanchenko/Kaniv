@@ -71,23 +71,10 @@ Fighter::Fighter(IrrlichtDevice* dev, ISceneNode* parent, ISceneManager* scene, 
 		vector3df(16.5f, -7.0f, -10.5f),
 		vector3df(30.0,0.0,0.0));
 }
-
 const vector3df& Fighter::getLeftRocketPosition(){
 	return vector3df(-17.3f, -7.8f, -9.5f);
 }
 
 const vector3df& Fighter::getRightRocketPosition(){
 	return vector3df (16.5f, -7.0f, -10.5f);
-}
-
-void Fighter::leftShot(){
-	//scene->getSceneNodeFromId(LEFT_ROCKET_NODE)->setVisible(false);
-}
-
-void Fighter::rightShot(){
-}
-
-Fighter::~Fighter(){
-//	craft->removeAll();
-//	craft->remove();
 }

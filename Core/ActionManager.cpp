@@ -1,6 +1,7 @@
 #include "ActionManager.h"
 
-ActionManager::ActionManager(IrrlichtDevice* dev, ISceneNode* root, Craft* f) : device(dev), rootNode(root) {
+ActionManager::ActionManager(IrrlichtDevice* dev, ISceneNode* root, Craft* f, SETTINGS_STRUCT* set) 
+	: device(dev), rootNode(root), SETTINGS(set) {
 	//if(!scene) log << "NULL cout" << endl;
 	leftShotTime = 0;
 	rightShotTime = 0;
@@ -13,32 +14,25 @@ ActionManager::ActionManager(IrrlichtDevice* dev, ISceneNode* root, Craft* f) : 
 	rightPressed = false;
 
 	ISceneManager* scene = device->getSceneManager();
+
 	fighter = scene->getSceneNodeFromId(NEWGAME_ELEMENT::NEWGAME_FIGHTER);
 	fighter->setDebugDataVisible(scene::EDS_BBOX);
 	craftPool.push_back(f);
 
-	deviceA = OpenDevice();
-	rocketSound = OpenSoundEffect(deviceA, "/rocket.wav", MULTIPLE);
-	rocketSound->setVolume(0.5f); // 0.0 to 1.0
+	enemyRoot = scene->addEmptySceneNode(rootNode); //scene node that contains all enemy crafts
+
+	//open sound effects
+	rocketSound = OpenSoundEffect(audioDevice, "/rocket.wav", MULTIPLE);
 	rocketSound->setPan(0);       // 0 Left, 1 Right
 	rocketSound->setPitchShift(1.5);
 
-	explosionSound = OpenSoundEffect(deviceA, "/explosion.wav", MULTIPLE);
-	explosionSound->setVolume(0.5f); // 0.0 to 1.0
+	explosionSound = OpenSoundEffect(audioDevice, "/explosion.wav", MULTIPLE);
 	explosionSound->setPan(0);       // 0 Left, 1 Right
 	explosionSound->setPitchShift(2.0);
 
 	IGUIFont* font = device->getGUIEnvironment()->getFont("/button_font.xml");
-	stringw tmp(L"SCORE: ");
-	tmp += currentScore;
-	score = scene->addTextSceneNode(font, tmp.c_str(), SColor(100,255,255, 255), rootNode, vector3df(0,SH_SF - 20,0));
-
-	/*	
-	craftPool.push_back(new Blinky(device,
-		rootNode, -1001,
-		vector3df(0, SCREEN_HEIGHT / SCALE_FACTOR + 10, 0),
-		0.5f, currentTime, ENEMY_ORIENTATION::ENEMY_LEFT, 1000, 100));
-	*/
+	score = scene->addTextSceneNode(font, L"", SColor(100,255,255, 255), rootNode, vector3df(0,SH_SF - 20,0));
+	updateScore();
 
 	/*
 	ISceneNode* sphere_1 = scene->addSphereSceneNode();
@@ -48,14 +42,30 @@ ActionManager::ActionManager(IrrlichtDevice* dev, ISceneNode* root, Craft* f) : 
 	sphere_2->setPosition(vector3df(-10,-10,0));
 	*/
 	
-	enemyGenerator = new EnemyGenerator(GAME_MODE::GAME_MODE_EASY, device, rootNode, craftPool);
+	enemyGenerator = new EnemyGenerator(SETTINGS->gameMode, device, enemyRoot, craftPool);
+}
+
+void ActionManager::updateScore(int inc){
+	currentScore += inc;
+	stringw tmp(L"SCORE: ");
+	tmp += currentScore;
+	score->setText(tmp.c_str());
+}
+
+void ActionManager::clearPools(){
+	enemyRoot->removeAll(); //remove all enemies
+	projectilePool.clear(); //clear pools
+	Craft* fighter = craftPool[0];
+	craftPool.clear();
+	craftPool.push_back(fighter);
 }
 
 void ActionManager::launchRocket(const vector3df& position, const vector3df& destination){
-	projectilePool.push_back(new Rocket(device, ROCKET_ID, rootNode, position, destination));
+	projectilePool.push_back(new Rocket(device, ROCKET_ID, enemyRoot, position, destination));
 }
 
 void ActionManager::fireAction(EMOUSE_INPUT_EVENT me){
+	rocketSound->setVolume(SETTINGS->soundVolume); // 0.0 to 1.0
 	if(inGame)
 		if(me == EMIE_LMOUSE_PRESSED_DOWN){
 			leftPressed = true;
@@ -83,44 +93,24 @@ void ActionManager::fireAction(EMOUSE_INPUT_EVENT me){
 }
 
 void ActionManager::stop(){
-	for(unsigned int i = 0; i < craftPool.size(); i++){
-		if(craftPool[i]->getSceneNode()->getID() != NEWGAME_FIGHTER){
-			craftPool[i]->remove();
-			delete craftPool[i];
-			craftPool.erase(i);
-		}
-	}
-	for(unsigned int i = 0; i < projectilePool.size(); i++){
-		projectilePool[i]->remove();
-		delete projectilePool[i];
-		projectilePool.erase(i);
-	}
+
 }
 
 void ActionManager::createExplosion(const vector3df& position, int size){
 	plane3df plane(vector3df(0,0,0), vector3df(0,0,-1));
 	addExplosion(position,vector3df(0,0,0), size, device->getSceneManager(), plane, 0); //create cool particle explosion
+	explosionSound->setVolume(SETTINGS->soundVolume); // 0.0 to 1.0
 	explosionSound->play();
 }
 
 void ActionManager::start(){
-	for(unsigned int i = 0; i < craftPool.size(); i++){
-		if(craftPool[i]->getSceneNode()->getID() != NEWGAME_FIGHTER){
-			craftPool[i]->remove();
-			delete craftPool[i];
-			craftPool.erase(i);
-		}
-	}
-	for(unsigned int i = 0; i < projectilePool.size(); i++){
-		projectilePool[i]->remove();
-		delete projectilePool[i];
-		projectilePool.erase(i);
-	}
+	clearPools(); //clear all "old" date (from previous games)
 	fighter->setVisible(true);
 	inGame = true;
 	gameOverTime = 0;
 	currentScore = 0;
-	score->setText(L"SCORE: 0");
+	updateScore();
+	enemyGenerator->reset(SETTINGS->gameMode);
 }
 
 void ActionManager::generateWave(ENEMYWAVE_TYPE type){
@@ -228,10 +218,7 @@ void ActionManager::collisionProjectileVsCraft(){
 					projectilePool[j]->remove(); //remove projectile
 					delete projectilePool[j];
 					projectilePool.erase(j);
-					currentScore += 10;
-					stringw tmp(L"SCORE: ");
-					tmp += currentScore;
-					score->setText(tmp.c_str());
+					updateScore(10);
 				}
 			}
 }
@@ -249,6 +236,7 @@ void ActionManager::gameOver(){
 
 void ActionManager::gameOverDelay(){
 	if((currentTime - gameOverTime) / 1000.f > delay){
+		stop();
 		irr::SEvent event;
 		event.EventType = EET_USER_EVENT;
 		event.UserEvent.UserData1 = -1;
@@ -257,17 +245,4 @@ void ActionManager::gameOverDelay(){
 }
 
 ActionManager::~ActionManager(){
-	//delete enemyGenerator;
-	/*
-	for(unsigned int i = 0; i < craftPool.size(); i++){
-		craftPool[i]->remove();
-		delete craftPool[i];
-		craftPool.erase(i);
-	}
-	for(unsigned int i = 0; i < projectilePool.size(); i++){
-		projectilePool[i]->remove();
-		delete projectilePool[i];
-		projectilePool.erase(i);
-	}
-	*/
 }

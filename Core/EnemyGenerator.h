@@ -24,6 +24,8 @@ class EnemyGenerator {
 
 	u32 currentTime; 
 	u32 lastGenerationTime; //last enemy wave generation time
+	u32 lastDifficultyUpdate;
+	f32 updateDifficultyTime;
 	
 	struct BlinkyInfo { //struct that contains all parameters of last generated blinky wave
 		f32 speed;
@@ -46,7 +48,7 @@ class EnemyGenerator {
 		f32 generationFrequency;
 		GAME_MODE mode;
 		Difficulty(){
-			speedFactor = 0.25;
+			speedFactor = 0.15;
 			mode = GAME_MODE_EASY;
 			generationFrequency = 2;
 		}
@@ -62,12 +64,13 @@ class EnemyGenerator {
 	void generateBlinkyWave(f32 speed);
 
 	ENEMY_DIRECTION getDirection();
-
 public:
 	EnemyGenerator(GAME_MODE mode, IrrlichtDevice* dev, ISceneNode* prnt, array<Craft*>& p);
 	~EnemyGenerator();
+
 	void generateWave(ENEMYWAVE_TYPE type, u32 time); //generate enemy wave of certain type
 	bool isReady(u32 time); //isn't it to early to add new enemies
+	void reset(GAME_MODE gameMode);
 };
 
 #endif

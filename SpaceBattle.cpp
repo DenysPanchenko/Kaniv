@@ -1,10 +1,6 @@
 #include "SpaceBattle.h"
 
-#include <cstdio>
-
 SpaceBattle::SpaceBattle(int argc, char** argv){
-	freopen("log","w",stdout);
-
 	splashTime = 3500.f; //show splash screen 3.5 seconds
 	isSplashShown = false;
 
@@ -16,11 +12,11 @@ SpaceBattle::SpaceBattle(int argc, char** argv){
 	scene = device->getSceneManager();
 	gui = device->getGUIEnvironment();
 
-	stateManager = new StateManager(device); //create state manager
+	stateManager = new StateManager(device, &SETTINGS); //create state manager
 	if(stateManager) 
-		stateManager->init(); //initialize it if created
+		stateManager->init(); //initialize it if is created
 
-	eventReceiver = new EventReceiver(device, stateManager); //create event receiver
+	eventReceiver = new EventReceiver(device, stateManager, &SETTINGS); //create event receiver
 	device->setEventReceiver(eventReceiver);
 	
 	loadFont(); //load "space" font
@@ -113,19 +109,13 @@ void SpaceBattle::run(){
 void SpaceBattle::loadFont(){
 	IGUIFont* defaultFont = 0;
 	IFileSystem* fileSystem = device->getFileSystem(); 
-	if(!fileSystem->existFile("/font.zip")){
-		cout << "main: Failed to load font, archive does not exists" << endl;
-	} else {
-		fileSystem->addZipFileArchive("/font.zip");
-		defaultFont = gui->getFont("/button_font.xml");
-		if(!defaultFont){
-			cout << "main: Failed to load font from archive" << endl;
-		} else {
-			defaultFont->grab();
-			gui->getSkin()->setFont(gui->getFont("/text_font.xml"), EGDF_DEFAULT);
-			gui->getSkin()->setFont(defaultFont, EGDF_BUTTON);
-			cout << "Font successfully loaded" << endl;
-		}
+
+	fileSystem->addZipFileArchive("/res/fonts.zip");
+	defaultFont = gui->getFont("button_font.xml");
+	if(defaultFont){
+		defaultFont->grab();
+		gui->getSkin()->setFont(gui->getFont("text_font.xml"), EGDF_DEFAULT);
+		gui->getSkin()->setFont(defaultFont, EGDF_BUTTON);
 	}
 }
 

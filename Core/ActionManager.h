@@ -36,6 +36,7 @@ class MyIAnimationEndCallBack : public irr::scene::IAnimationEndCallBack
 
 class ActionManager {//: public IAnimationEndCallBack{
 	ISceneNode* rootNode;
+	ISceneNode* enemyRoot;
 	ISceneNode* fighter;
 	IrrlichtDevice* device;
 
@@ -47,6 +48,7 @@ class ActionManager {//: public IAnimationEndCallBack{
 	u32 currentTime; //current game time
 	u32 leftShotTime;
 	u32 rightShotTime;
+	SETTINGS_STRUCT* SETTINGS;
 
 	EnemyGenerator* enemyGenerator;
 	array<Craft*> craftPool;
@@ -61,10 +63,8 @@ class ActionManager {//: public IAnimationEndCallBack{
 	int currentScore;
 	ITextSceneNode* score;
 
-	AudioDevicePtr deviceA;
 	SoundEffectPtr rocketSound;
 	SoundEffectPtr explosionSound;
-	
 
 	void createExplosion(const vector3df& position, int size);
 	void gameOverDelay();
@@ -74,10 +74,12 @@ class ActionManager {//: public IAnimationEndCallBack{
 	void collisionProjectileVsCraft();
 	void collisionProjectileVsProjectile();
 	void removeInvisibleProjectiles();
+	void clearPools();
+	void updateScore(int inc = 0);
 	void launchRocket(const vector3df& position, const vector3df& rotation);
 	bool collisionCheck(ISceneNode* obj_1, ISceneNode* obj_2);
 public:
-	ActionManager(IrrlichtDevice* dev, ISceneNode* root, Craft* f);
+	ActionManager(IrrlichtDevice* dev, ISceneNode* root, Craft* f, SETTINGS_STRUCT* set);
 	~ActionManager();
 	void fireAction(EMOUSE_INPUT_EVENT me);
 	void fireAction(EKEY_CODE kc);

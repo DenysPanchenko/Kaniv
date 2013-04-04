@@ -25,8 +25,9 @@ class NewGame : public AbstractState{
 	ISceneNode* gameRootNode;
 	IGUIEnvironment* gui;
 	ISceneManager* scene;
+	SETTINGS_STRUCT* SETTINGS;
 public:
-	NewGame(IrrlichtDevice* dev);
+	NewGame(IrrlichtDevice* dev, SETTINGS_STRUCT* set);
 	void remove();
 	virtual void setVisible(bool flg);
 	virtual bool init();

@@ -14,7 +14,6 @@ using namespace scene;
 class Fighter : public Craft {
 	s32 LEFT_ROCKET_ID;
 	s32 RIGHT_ROCKET_ID;
-	//ISceneNode* craft;
 public:
 	Fighter(IrrlichtDevice* dev,
 			ISceneNode* parent = 0,
@@ -22,11 +21,8 @@ public:
 			s32 id = (s32)NEWGAME_ELEMENT::NEWGAME_FIGHTER,
 			vector3df pos = vector3df(0,0,0),
 			vector3df rot = vector3df(-30,0,0));
-	~Fighter();
 	const vector3df& getLeftRocketPosition();
 	const vector3df& getRightRocketPosition();
-	void leftShot();
-	void rightShot();
 };
 
 #endif

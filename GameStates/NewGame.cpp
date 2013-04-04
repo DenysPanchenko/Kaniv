@@ -1,6 +1,6 @@
 #include "NewGame.h"
 
-NewGame::NewGame(IrrlichtDevice* dev) : AbstractState(dev){
+NewGame::NewGame(IrrlichtDevice* dev, SETTINGS_STRUCT* set) : AbstractState(dev), SETTINGS(set){
 	//init();
 }
 
@@ -32,8 +32,7 @@ bool NewGame::init(){
 	//create fighter
 	fighter = new Fighter(device, gameRootNode, scene);
 
-	actionManager = new ActionManager(device, gameRootNode, fighter);
-
+	actionManager = new ActionManager(device, gameRootNode, fighter, SETTINGS);
 	
 	IBillboardSceneNode* background = scene->addBillboardSceneNode(
 		gameRootNode, dimension2d<f32>(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2),
@@ -88,11 +87,3 @@ void NewGame::mouseInputEvent(EMOUSE_INPUT_EVENT event){
 void NewGame::update(s32 time){
 	actionManager->update(time);
 }
-
-/*
-NewGame::~NewGame(){
-	delete actionManager;
-	delete fighter;
-	gameRootNode->drop();
-}
-*/

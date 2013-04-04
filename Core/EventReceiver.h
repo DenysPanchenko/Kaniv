@@ -19,8 +19,8 @@ using namespace io;
 class EventReceiver : public IEventReceiver{
 	IrrlichtDevice* device;
 	StateManager* stateManager;
-	AudioDevicePtr audioDevice;
 	SoundEffectPtr pushButtonSound;
+	SETTINGS_STRUCT* SETTINGS;
 public:
 	struct MouseState{
 		position2di position;
@@ -29,7 +29,7 @@ public:
 		MouseState() : leftButtonDown(false), rightButtonDown(false){};
 	} currentMouseState;
 
-	EventReceiver(IrrlichtDevice* dev = 0, StateManager* st = 0);
+	EventReceiver(IrrlichtDevice* dev = 0, StateManager* st = 0, SETTINGS_STRUCT* settings = 0);
 	virtual bool OnEvent(const SEvent& ev);
 	MouseState getMouseState() const;
 	void showExitConfirmDialog();

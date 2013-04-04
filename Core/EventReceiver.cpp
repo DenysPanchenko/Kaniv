@@ -1,9 +1,8 @@
 #include "EventReceiver.h"
 
-EventReceiver::EventReceiver(IrrlichtDevice* dev, StateManager* st) : device(dev), stateManager(st){
-	audioDevice = OpenDevice();
+EventReceiver::EventReceiver(IrrlichtDevice* dev, StateManager* st, SETTINGS_STRUCT* set) 
+	: device(dev), stateManager(st), SETTINGS(set){
 	pushButtonSound = OpenSoundEffect(audioDevice, "/button.mp3", MULTIPLE);
-	pushButtonSound->setVolume(1.0);
 }
 
 EventReceiver::MouseState EventReceiver::getMouseState() const {
@@ -22,6 +21,7 @@ bool EventReceiver::OnEvent(const SEvent& event){
 			break;
 		}
 	}
+	//implement here keyboard control
 	if(event.EventType == EET_MOUSE_INPUT_EVENT){
 		stateManager->mouseInputEvent(event.MouseInput.Event);
 		switch(event.MouseInput.Event){
@@ -86,7 +86,34 @@ bool EventReceiver::OnEvent(const SEvent& event){
 			default:
 				break;
 			}
+			pushButtonSound->setVolume(SETTINGS->soundVolume);
 			pushButtonSound->play();
+			break;
+		case EGET_CHECKBOX_CHANGED:
+			if(!((IGUICheckBox*)(event.GUIEvent.Caller))->isChecked()){
+				SETTINGS->soundVolume = 0.0;
+			}
+			else{
+				SETTINGS->soundVolume = 0.5;
+			}
+			stateManager->setMusic();
+			break;
+		case EGET_COMBO_BOX_CHANGED:
+			int index = ((IGUIComboBox*)(event.GUIEvent.Caller))->getSelected();
+			cout << "index = " << index << endl;
+			switch(index){
+			case 0:
+				SETTINGS->gameMode = GAME_MODE_EASY;
+				break;
+			case 1:
+				SETTINGS->gameMode = GAME_MODE_NORMAL;
+				break;
+			case 2:
+				SETTINGS->gameMode = GAME_MODE_HARD;
+				break;
+			default:
+				break;
+			}
 			break;
 		}
 	} else if(event.EventType == EET_USER_EVENT){
