@@ -12,8 +12,8 @@ Sound supporting is implemented with the [audiere][3] library.
 Sources of resources:
 
 * Sounds and music: http://www.freesound.org/
-* Headlines and buttons http://cooltext.com/
-* 3d models, game requrments and scenario [XPN 2013][4].
+* Headlines and buttons: http://cooltext.com/
+* 3d models, game requrments and scenario: [XPN 2013][4].
 
 Feedback
 -------------------------
