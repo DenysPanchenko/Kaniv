@@ -16,7 +16,7 @@ ActionManager::ActionManager(IrrlichtDevice* dev, ISceneNode* root, Craft* f, SE
 	ISceneManager* scene = device->getSceneManager();
 
 	fighter = scene->getSceneNodeFromId(NEWGAME_ELEMENT::NEWGAME_FIGHTER);
-	fighter->setDebugDataVisible(scene::EDS_BBOX);
+	//fighter->setDebugDataVisible(scene::EDS_BBOX);
 	craftPool.push_back(f);
 
 	enemyRoot = scene->addEmptySceneNode(rootNode); //scene node that contains all enemy crafts
