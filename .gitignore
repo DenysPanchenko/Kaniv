@@ -1,11 +1,7 @@
 ##############
 #SpaceBattle gui xml
 ##############
-about_gui.xml
-settings_gui.xml
-newgame_gui.xml
-help_gui.xml
-mainmenu_gui.xml
+*.xml
 
 #################
 ## Eclipse
