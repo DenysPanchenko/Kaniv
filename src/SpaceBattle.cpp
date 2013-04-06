@@ -6,14 +6,16 @@ SpaceBattle::SpaceBattle(int argc, char** argv){
 
 	device = createDevice(video::EDT_OPENGL, //create irrlicht game device
 		dimension2d<u32>(SCREEN_WIDTH, SCREEN_HEIGHT),
-		16, false, false, false);
+		32, true, false, false);
 
 	driver = device->getVideoDriver();
 	scene = device->getSceneManager();
 	gui = device->getGUIEnvironment();
 
-	//device->getFileSystem()->addZipFileArchive("/res/fonts.zip");
 	device->getFileSystem()->addFileArchive("./res/");
+	device->getFileSystem()->addZipFileArchive("./res/font.zip");
+	device->getFileSystem()->addZipFileArchive("./res/mesh.zip");
+	device->getFileSystem()->addZipFileArchive("./res/image.zip");
 
 	stateManager = new StateManager(device, &SETTINGS); //create state manager
 	if(stateManager) 
@@ -37,7 +39,7 @@ void SpaceBattle::showSplash(u32 time){
 			dimension2d<f32>(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2), vector3df(0,0,50));
 		splash->setMaterialFlag(video::EMF_LIGHTING, false);
 		splash->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR);
-		splash->setMaterialTexture(0, driver->getTexture("/splash_screen.jpg"));
+		splash->setMaterialTexture(0, driver->getTexture("splash_screen.jpg"));
 
 		ICameraSceneNode* camera = scene->addCameraSceneNode(tmp);
 		camera->setPosition(vector3df(0,0,-100));
@@ -47,6 +49,13 @@ void SpaceBattle::showSplash(u32 time){
 		camera->setProjectionMatrix(projectionMatrix, true);
 		isSplashShown = true;
 	} else if(time > splashTime){
+		scene->getMesh("fighter.irrmesh");
+		scene->getMesh("rocket.irrmesh");
+		scene->getMesh("enemy_1.irrmesh");
+		scene->getMesh("enemy_2.irrmesh");
+		scene->getMesh("enemy_3.irrmesh");
+		scene->getMesh("enemy_4.irrmesh");
+		scene->getMesh("asteroid.irrmesh");
 		tmp->remove();
 		stateManager->setState(GAME_MAINMENU_STATE);
 		isSplashShown = false;
@@ -111,7 +120,6 @@ void SpaceBattle::run(){
 
 void SpaceBattle::loadFont(){
 	IGUIFont* defaultFont = 0;
-	device->getFileSystem()->addZipFileArchive("fonts.zip");
 	defaultFont = gui->getFont("button_font.xml");
 	if(defaultFont){
 		defaultFont->grab();
