@@ -3,7 +3,7 @@
 Pinky::Pinky(IrrlichtDevice* dev, ISceneNode* parent,
 	s32 ID, const vector3df& position, f32 speed, u32 time, ENEMY_DIRECTION direction) : Craft(dev){
 		ISceneManager* scene = device->getSceneManager();
-		craft = scene->addAnimatedMeshSceneNode(scene->getMesh("/enemy_2.irrmesh"), parent, ID, position);
+		craft = scene->addAnimatedMeshSceneNode(scene->getMesh("enemy_2.irrmesh"), parent, ID, position);
 
 		if(craft){
 			array<vector3df> points; //directional points of spline fighter traectory

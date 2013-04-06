@@ -19,7 +19,7 @@
 
   Daniel Sudmann suddani@googlemail.com
 */
-#include "CTrailParticleDrawer.h"
+#include "ParticleExplosion/CTrailParticleDrawer.h"
 
 CTrailParticleDrawer::CTrailParticleDrawer()
 {

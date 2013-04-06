@@ -2,21 +2,21 @@
 #define StateManager_h
 
 #include <irrlicht.h>
-
 using namespace irr;
 
+//#include "audiere.h"
+
 #include "Global.h"
-#include "../Core/audiere.h"
-#include "../GameStates/Help.h"
-#include "../GameStates/About.h"
-#include "../GameStates/NewGame.h"
-#include "../GameStates/MainMenu.h"
-#include "../GameStates/Settings.h"
-#include "../GameStates/GameOver.h"
-#include "../GameStates/AbstractState.h"
+
+#include "Help.h"
+#include "About.h"
+#include "NewGame.h"
+#include "MainMenu.h"
+#include "Settings.h"
+#include "GameOver.h"
+#include "AbstractState.h"
 
 #include <map>
-
 using namespace std;
 
 class StateManager {

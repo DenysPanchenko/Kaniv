@@ -5,11 +5,11 @@ StateManager::StateManager(IrrlichtDevice* dev, SETTINGS_STRUCT* set) : device(d
 };
 
 bool StateManager::init(){
-	mainMenuMusic = OpenSound(audioDevice, "/mainmenu.wav", true);
+	mainMenuMusic = OpenSound(audioDevice, "./res/sound/mainmenu.wav", true);
 	mainMenuMusic->setPan(0);       // 0 Left, 1 Right
 	mainMenuMusic->setRepeat(1);    // 1 loop, 0 don't loop
 
-	newGameMusic = OpenSound(audioDevice, "/newgame.mp3", true);
+	newGameMusic = OpenSound(audioDevice, "./res/sound/newgame.mp3", true);
 	newGameMusic->setPan(0);       // 0 Left, 1 Right
 	newGameMusic->setRepeat(1);    // 1 loop, 0 don't loop
 

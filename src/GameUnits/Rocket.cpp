@@ -4,7 +4,7 @@ Rocket::Rocket(IrrlichtDevice* device, s32 id, ISceneNode* parent, vector3df pos
 	ISceneManager* scene = device->getSceneManager();
 
 	anms = scene->addAnimatedMeshSceneNode(
-		scene->getMesh("/rocket.irrmesh"), parent, id, position);
+		scene->getMesh("rocket.irrmesh"), parent, id, position);
 	anms->setLoopMode(false);
 
 	//anms->setDebugDataVisible(scene::EDS_BBOX);
@@ -37,7 +37,7 @@ Rocket::Rocket(IrrlichtDevice* device, s32 id, ISceneNode* parent, vector3df pos
 
 	fire->setMaterialFlag(video::EMF_LIGHTING, false);
 	fire->setMaterialFlag(video::EMF_ZWRITE_ENABLE, false);
-	fire->setMaterialTexture(0, device->getVideoDriver()->getTexture("/brightfire.jpg"));
+	fire->setMaterialTexture(0, device->getVideoDriver()->getTexture("brightfire.jpg"));
 	fire->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR);
 
 	if(anms){

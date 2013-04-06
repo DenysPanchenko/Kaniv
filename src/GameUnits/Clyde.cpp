@@ -8,7 +8,7 @@ Clyde::Clyde(IrrlichtDevice* dev, ISceneNode* parent, s32 ID, vector3df position
 	f32 speed, u32 time) : Craft(dev) {
 	alive = true;
 	ISceneManager* scene = device->getSceneManager();
-		craft = scene->addAnimatedMeshSceneNode(scene->getMesh("/enemy_3.irrmesh"), parent, ID, position);
+		craft = scene->addAnimatedMeshSceneNode(scene->getMesh("enemy_3.irrmesh"), parent, ID, position);
 
 	if(craft){
 		ISceneNodeAnimator* rotationAnimator = scene->createRotationAnimator(vector3df(0.0, 1.0, 0.0));

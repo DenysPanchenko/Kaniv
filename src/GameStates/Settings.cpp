@@ -45,7 +45,7 @@ bool Settings::init(){
 	//set up gui elemetns
 	//----------------------
 
-	ITexture* captionTexture = driver->getTexture("/settings.png");
+	ITexture* captionTexture = driver->getTexture("settings.png");
 
 	dimension2df size(619, 94);
 	int topMargin = 15;
@@ -87,8 +87,8 @@ bool Settings::init(){
 		0, ABOUT_ELEMENT::ABOUT_BACK_BUTTON, L"BACK", L"Return to main menu");
 	back->setUseAlphaChannel(true);
 	back->setDrawBorder(false);
-	back->setImage(driver->getTexture("/inactive.png"));
-	back->setPressedImage(driver->getTexture("/active.png"));
+	back->setImage(driver->getTexture("inactive.png"));
+	back->setPressedImage(driver->getTexture("active.png"));
 
 	gui->saveGUI("settings_gui.xml");
 	return false;

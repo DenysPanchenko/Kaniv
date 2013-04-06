@@ -2,7 +2,7 @@
 
 Inky::Inky(IrrlichtDevice* dev, ISceneNode* parent, s32 ID, vector3df position, f32 speed, f32 time) : Craft(dev) {
 	ISceneManager* scene = device->getSceneManager();
-	craft = scene->addAnimatedMeshSceneNode(scene->getMesh("/enemy_4.irrmesh"), parent, ID, position);
+	craft = scene->addAnimatedMeshSceneNode(scene->getMesh("enemy_4.irrmesh"), parent, ID, position);
 		
 	if(craft){
 		array<vector3df> points; //directional points of spline fighter traectory

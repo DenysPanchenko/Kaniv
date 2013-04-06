@@ -12,6 +12,9 @@ SpaceBattle::SpaceBattle(int argc, char** argv){
 	scene = device->getSceneManager();
 	gui = device->getGUIEnvironment();
 
+	//device->getFileSystem()->addZipFileArchive("/res/fonts.zip");
+	device->getFileSystem()->addFileArchive("./res/");
+
 	stateManager = new StateManager(device, &SETTINGS); //create state manager
 	if(stateManager) 
 		stateManager->init(); //initialize it if is created
@@ -108,9 +111,7 @@ void SpaceBattle::run(){
 
 void SpaceBattle::loadFont(){
 	IGUIFont* defaultFont = 0;
-	IFileSystem* fileSystem = device->getFileSystem(); 
-
-	fileSystem->addZipFileArchive("/res/fonts.zip");
+	device->getFileSystem()->addZipFileArchive("fonts.zip");
 	defaultFont = gui->getFont("button_font.xml");
 	if(defaultFont){
 		defaultFont->grab();

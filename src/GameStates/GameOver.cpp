@@ -16,7 +16,7 @@ bool GameOver::init(){
 	//set up gui elemetns
 	//----------------------
 	
-	IGUIImage* background = gui->addImage(driver->getTexture("/gameover_background.png"), position2d<s32>(75,30), true);
+	IGUIImage* background = gui->addImage(driver->getTexture("gameover_background.png"), position2d<s32>(75,30), true);
 
 	int x1 = width / 2 - 300, y1 = height / 8 - 100;
 	int x2 = width / 2 + 300, y2 = height / 8 + 100;
@@ -46,8 +46,8 @@ bool GameOver::init(){
 	*/
 	replay->setUseAlphaChannel(true);
 	replay->setDrawBorder(false);
-	replay->setImage(driver->getTexture("/inactive.png"));
-	replay->setPressedImage(driver->getTexture("/active.png"));
+	replay->setImage(driver->getTexture("inactive.png"));
+	replay->setPressedImage(driver->getTexture("active.png"));
 	
 	gui->saveGUI("gameover_gui.xml");
 	return false;

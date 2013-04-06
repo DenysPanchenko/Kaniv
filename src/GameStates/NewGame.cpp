@@ -39,7 +39,7 @@ bool NewGame::init(){
 		vector3df(0,0,50), NEWGAME_ELEMENT::NEWGAME_BACKGROUND);
 	background->setMaterialFlag(video::EMF_LIGHTING, false);
     background->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR);
-    background->setMaterialTexture(0, driver->getTexture("/background.tga"));
+    background->setMaterialTexture(0, driver->getTexture("background.tga"));
 
 
 	//create a camera and add it to scene

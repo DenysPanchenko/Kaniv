@@ -16,7 +16,7 @@ bool Help::init(){
 	//set up gui elemetns
 	//----------------------
 
-	ITexture* captionTexture = driver->getTexture("/help.png");
+	ITexture* captionTexture = driver->getTexture("help.png");
 
 	IGUIImage* captionImage = gui->addImage(core::rect<s32>(0,0,SCREEN_WIDTH,200));
 
@@ -49,8 +49,8 @@ bool Help::init(){
 		0, ABOUT_ELEMENT::ABOUT_BACK_BUTTON, L"BACK", L"Return to main menu");
 	back->setUseAlphaChannel(true);
 	back->setDrawBorder(false);
-	back->setImage(driver->getTexture("/inactive.png"));
-	back->setPressedImage(driver->getTexture("/active.png")); //back to main menu button
+	back->setImage(driver->getTexture("inactive.png"));
+	back->setPressedImage(driver->getTexture("active.png")); //back to main menu button
 
 	gui->saveGUI("help_gui.xml");
 	return false;

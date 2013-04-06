@@ -16,7 +16,7 @@ bool About::init(){
 	//set up gui elemetns
 	//----------------------
 
-	ITexture* captionTexture = driver->getTexture("/about.png");
+	ITexture* captionTexture = driver->getTexture("about.png");
 
 	dimension2df size(434, 85);
 	int topMargin = 15;
@@ -49,8 +49,8 @@ bool About::init(){
 		0, ABOUT_ELEMENT::ABOUT_BACK_BUTTON, L"BACK", L"Return to main menu");
 	back->setUseAlphaChannel(true);
 	back->setDrawBorder(false);
-	back->setImage(driver->getTexture("/inactive.png"));
-	back->setPressedImage(driver->getTexture("/active.png")); //back to main menu button
+	back->setImage(driver->getTexture("inactive.png"));
+	back->setPressedImage(driver->getTexture("active.png")); //back to main menu button
 
 	gui->saveGUI("about_gui.xml");
 	return false;

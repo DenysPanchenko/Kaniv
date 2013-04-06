@@ -1,0 +1,773 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{b5c86f49-902c-41c4-aeb8-435158ebc22d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameStates">
+      <UniqueIdentifier>{7134bde8-6a5c-469d-9a23-07948fe4fde9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameUnits">
+      <UniqueIdentifier>{28690b54-5972-4c4c-9be2-34884a0ac2fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ParticleExplosion">
+      <UniqueIdentifier>{e338b93e-c789-4498-b955-81d90cb7330b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ExternalDependencies">
+      <UniqueIdentifier>{5be98905-6ea9-42a5-a2cf-c3ac295aca3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{5f0ec8a9-392a-45f5-816a-dc2743a41b87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameUnits">
+      <UniqueIdentifier>{587ead09-e693-4b80-a13c-97745f6d4461}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameStates">
+      <UniqueIdentifier>{35d3cf99-7256-467a-9c0a-fca2983e13c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ParticleExplosion">
+      <UniqueIdentifier>{6ed67e15-0a7f-483e-a203-30b3bc0847b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ExternalDependencies\irrlicht-1.8">
+      <UniqueIdentifier>{1790fbba-2fd5-4682-afb2-d2660c50bbbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ExternalDependencies\audiere-1.9">
+      <UniqueIdentifier>{cf385ab0-2d90-478a-aa8c-03b71b61493e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\Core\ActionManager.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Core\EnemyGenerator.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Core\EventReceiver.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Core\Global.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Core\StateManager.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\aabbox3d.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\CDynamicMeshBuffer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\CIndexBuffer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\CMeshBuffer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\coreutil.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\CVertexBuffer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\dimension2d.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\driverChoice.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\EAttributes.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ECullingTypes.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\EDebugSceneTypes.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\EDeviceTypes.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\EDriverFeatures.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\EDriverTypes.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\EGUIAlignment.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\EGUIElementTypes.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\EHardwareBufferFlags.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\EMaterialFlags.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\EMaterialTypes.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\EMeshWriterEnums.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\EMessageBoxFlags.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\EPrimitiveTypes.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ESceneNodeAnimatorTypes.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ESceneNodeTypes.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\EShaderTypes.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ETerrainElements.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\fast_atof.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\heapsort.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IAnimatedMesh.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IAnimatedMeshMD2.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IAnimatedMeshMD3.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IAnimatedMeshSceneNode.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IAttributeExchangingObject.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IAttributes.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IBillboardSceneNode.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IBillboardTextSceneNode.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IBoneSceneNode.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ICameraSceneNode.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IColladaMeshWriter.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ICursorControl.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IDummyTransformationSceneNode.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IDynamicMeshBuffer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IEventReceiver.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IFileArchive.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IFileList.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IFileSystem.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGeometryCreator.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGPUProgrammingServices.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIButton.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUICheckBox.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIColorSelectDialog.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIComboBox.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIContextMenu.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIEditBox.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIElement.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIElementFactory.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIEnvironment.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIFileOpenDialog.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIFont.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIFontBitmap.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIImage.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIImageList.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIInOutFader.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIListBox.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIMeshViewer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIScrollBar.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUISkin.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUISpinBox.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUISpriteBank.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIStaticText.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUITabControl.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUITable.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIToolbar.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUITreeView.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IGUIWindow.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IImage.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IImageLoader.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IImageWriter.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IIndexBuffer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ILightManager.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ILightSceneNode.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ILogger.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IMaterialRenderer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IMaterialRendererServices.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IMesh.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IMeshBuffer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IMeshCache.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IMeshLoader.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IMeshManipulator.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IMeshSceneNode.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IMeshWriter.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IMetaTriangleSelector.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IOSOperator.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IParticleAffector.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IParticleAnimatedMeshSceneNodeEmitter.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IParticleAttractionAffector.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IParticleBoxEmitter.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IParticleCylinderEmitter.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IParticleEmitter.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IParticleFadeOutAffector.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IParticleGravityAffector.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IParticleMeshEmitter.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IParticleRingEmitter.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IParticleRotationAffector.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IParticleSphereEmitter.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IParticleSystemSceneNode.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IQ3LevelMesh.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IQ3Shader.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IRandomizer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IReadFile.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IReferenceCounted.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\irrAllocator.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\irrArray.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IrrCompileConfig.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\irrlicht.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IrrlichtDevice.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\irrList.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\irrMap.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\irrMath.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\irrpack.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\irrString.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\irrTypes.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\irrunpack.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\irrXML.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ISceneCollisionManager.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ISceneLoader.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ISceneManager.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ISceneNode.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ISceneNodeAnimator.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ISceneNodeAnimatorCameraFPS.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ISceneNodeAnimatorCameraMaya.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ISceneNodeAnimatorCollisionResponse.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ISceneNodeAnimatorFactory.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ISceneNodeFactory.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ISceneUserDataSerializer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IShaderConstantSetCallBack.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IShadowVolumeSceneNode.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ISkinnedMesh.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ITerrainSceneNode.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ITextSceneNode.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ITexture.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ITimer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\ITriangleSelector.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IVertexBuffer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IVideoDriver.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IVideoModeList.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IVolumeLightSceneNode.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IWriteFile.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IXMLReader.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\IXMLWriter.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\Keycodes.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\line2d.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\line3d.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\matrix4.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\path.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\plane3d.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\position2d.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\quaternion.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\rect.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\S3DVertex.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SAnimatedMesh.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SceneParameters.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SColor.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SExposedVideoData.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SIrrCreationParameters.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SKeyMap.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SLight.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SMaterial.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SMaterialLayer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SMesh.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SMeshBuffer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SMeshBufferLightMap.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SMeshBufferTangents.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SParticle.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SSharedMeshBuffer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SSkinMeshBuffer.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SVertexIndex.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SVertexManipulator.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\SViewFrustum.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\triangle3d.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\vector2d.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\irrlicht-1.8\vector3d.h">
+      <Filter>ExternalDependencies\irrlicht-1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\audiere-1.9\audiere.h">
+      <Filter>ExternalDependencies\audiere-1.9</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GameStates\About.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GameStates\AbstractState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GameStates\GameOver.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GameStates\Help.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GameStates\MainMenu.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GameStates\NewGame.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GameStates\Settings.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GameUnits\Blinky.h">
+      <Filter>Header Files\GameUnits</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GameUnits\Clyde.h">
+      <Filter>Header Files\GameUnits</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GameUnits\Craft.h">
+      <Filter>Header Files\GameUnits</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GameUnits\Fighter.h">
+      <Filter>Header Files\GameUnits</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GameUnits\Inky.h">
+      <Filter>Header Files\GameUnits</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GameUnits\Pinky.h">
+      <Filter>Header Files\GameUnits</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GameUnits\Rocket.h">
+      <Filter>Header Files\GameUnits</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ParticleExplosion\CBillboardParticleDrawer.h">
+      <Filter>Header Files\ParticleExplosion</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ParticleExplosion\CMain.h">
+      <Filter>Header Files\ParticleExplosion</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ParticleExplosion\COrientedParticleDrawer.h">
+      <Filter>Header Files\ParticleExplosion</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ParticleExplosion\CParticleDrawer.h">
+      <Filter>Header Files\ParticleExplosion</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ParticleExplosion\CParticleEmitter.h">
+      <Filter>Header Files\ParticleExplosion</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ParticleExplosion\CParticleSystem.h">
+      <Filter>Header Files\ParticleExplosion</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ParticleExplosion\CTrailParticleDrawer.h">
+      <Filter>Header Files\ParticleExplosion</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ParticleExplosion\Particle.h">
+      <Filter>Header Files\ParticleExplosion</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SpaceBattle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="inc\ParticleExplosion\fig7_alpha.png">
+      <Filter>Header Files\ParticleExplosion</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Core\ActionManager.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\EnemyGenerator.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\EventReceiver.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\StateManager.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameUnits\Blinky.cpp">
+      <Filter>Source Files\GameUnits</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameUnits\Clyde.cpp">
+      <Filter>Source Files\GameUnits</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameUnits\Craft.cpp">
+      <Filter>Source Files\GameUnits</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameUnits\Fighter.cpp">
+      <Filter>Source Files\GameUnits</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameUnits\Inky.cpp">
+      <Filter>Source Files\GameUnits</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameUnits\Pinky.cpp">
+      <Filter>Source Files\GameUnits</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameUnits\Rocket.cpp">
+      <Filter>Source Files\GameUnits</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameStates\About.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameStates\AbstractState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameStates\GameOver.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameStates\Help.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameStates\MainMenu.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameStates\NewGame.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameStates\Settings.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParticleExplosion\CBillboardParticleDrawer.cpp">
+      <Filter>Source Files\ParticleExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParticleExplosion\CMain.cpp">
+      <Filter>Source Files\ParticleExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParticleExplosion\COrientedParticleDrawer.cpp">
+      <Filter>Source Files\ParticleExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParticleExplosion\CParticleDrawer.cpp">
+      <Filter>Source Files\ParticleExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParticleExplosion\CParticleEmitter.cpp">
+      <Filter>Source Files\ParticleExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParticleExplosion\CParticleSystem.cpp">
+      <Filter>Source Files\ParticleExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParticleExplosion\CTrailParticleDrawer.cpp">
+      <Filter>Source Files\ParticleExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SpaceBattle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

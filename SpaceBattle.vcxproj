@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ext\audiere-1.9\audiere.h" />
+    <ClInclude Include="ext\irrlicht-1.8\aabbox3d.h" />
+    <ClInclude Include="ext\irrlicht-1.8\CDynamicMeshBuffer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\CIndexBuffer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\CMeshBuffer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\coreutil.h" />
+    <ClInclude Include="ext\irrlicht-1.8\CVertexBuffer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\dimension2d.h" />
+    <ClInclude Include="ext\irrlicht-1.8\driverChoice.h" />
+    <ClInclude Include="ext\irrlicht-1.8\EAttributes.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ECullingTypes.h" />
+    <ClInclude Include="ext\irrlicht-1.8\EDebugSceneTypes.h" />
+    <ClInclude Include="ext\irrlicht-1.8\EDeviceTypes.h" />
+    <ClInclude Include="ext\irrlicht-1.8\EDriverFeatures.h" />
+    <ClInclude Include="ext\irrlicht-1.8\EDriverTypes.h" />
+    <ClInclude Include="ext\irrlicht-1.8\EGUIAlignment.h" />
+    <ClInclude Include="ext\irrlicht-1.8\EGUIElementTypes.h" />
+    <ClInclude Include="ext\irrlicht-1.8\EHardwareBufferFlags.h" />
+    <ClInclude Include="ext\irrlicht-1.8\EMaterialFlags.h" />
+    <ClInclude Include="ext\irrlicht-1.8\EMaterialTypes.h" />
+    <ClInclude Include="ext\irrlicht-1.8\EMeshWriterEnums.h" />
+    <ClInclude Include="ext\irrlicht-1.8\EMessageBoxFlags.h" />
+    <ClInclude Include="ext\irrlicht-1.8\EPrimitiveTypes.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ESceneNodeAnimatorTypes.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ESceneNodeTypes.h" />
+    <ClInclude Include="ext\irrlicht-1.8\EShaderTypes.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ETerrainElements.h" />
+    <ClInclude Include="ext\irrlicht-1.8\fast_atof.h" />
+    <ClInclude Include="ext\irrlicht-1.8\heapsort.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IAnimatedMesh.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IAnimatedMeshMD2.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IAnimatedMeshMD3.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IAnimatedMeshSceneNode.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IAttributeExchangingObject.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IAttributes.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IBillboardSceneNode.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IBillboardTextSceneNode.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IBoneSceneNode.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ICameraSceneNode.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IColladaMeshWriter.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ICursorControl.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IDummyTransformationSceneNode.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IDynamicMeshBuffer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IEventReceiver.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IFileArchive.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IFileList.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IFileSystem.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGeometryCreator.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGPUProgrammingServices.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIButton.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUICheckBox.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIColorSelectDialog.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIComboBox.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIContextMenu.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIEditBox.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIElement.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIElementFactory.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIEnvironment.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIFileOpenDialog.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIFont.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIFontBitmap.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIImage.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIImageList.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIInOutFader.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIListBox.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIMeshViewer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIScrollBar.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUISkin.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUISpinBox.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUISpriteBank.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIStaticText.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUITabControl.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUITable.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIToolbar.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUITreeView.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IGUIWindow.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IImage.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IImageLoader.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IImageWriter.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IIndexBuffer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ILightManager.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ILightSceneNode.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ILogger.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IMaterialRenderer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IMaterialRendererServices.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IMesh.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IMeshBuffer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IMeshCache.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IMeshLoader.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IMeshManipulator.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IMeshSceneNode.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IMeshWriter.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IMetaTriangleSelector.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IOSOperator.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IParticleAffector.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IParticleAnimatedMeshSceneNodeEmitter.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IParticleAttractionAffector.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IParticleBoxEmitter.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IParticleCylinderEmitter.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IParticleEmitter.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IParticleFadeOutAffector.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IParticleGravityAffector.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IParticleMeshEmitter.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IParticleRingEmitter.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IParticleRotationAffector.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IParticleSphereEmitter.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IParticleSystemSceneNode.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IQ3LevelMesh.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IQ3Shader.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IRandomizer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IReadFile.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IReferenceCounted.h" />
+    <ClInclude Include="ext\irrlicht-1.8\irrAllocator.h" />
+    <ClInclude Include="ext\irrlicht-1.8\irrArray.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IrrCompileConfig.h" />
+    <ClInclude Include="ext\irrlicht-1.8\irrlicht.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IrrlichtDevice.h" />
+    <ClInclude Include="ext\irrlicht-1.8\irrList.h" />
+    <ClInclude Include="ext\irrlicht-1.8\irrMap.h" />
+    <ClInclude Include="ext\irrlicht-1.8\irrMath.h" />
+    <ClInclude Include="ext\irrlicht-1.8\irrpack.h" />
+    <ClInclude Include="ext\irrlicht-1.8\irrString.h" />
+    <ClInclude Include="ext\irrlicht-1.8\irrTypes.h" />
+    <ClInclude Include="ext\irrlicht-1.8\irrunpack.h" />
+    <ClInclude Include="ext\irrlicht-1.8\irrXML.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ISceneCollisionManager.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ISceneLoader.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ISceneManager.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ISceneNode.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ISceneNodeAnimator.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ISceneNodeAnimatorCameraFPS.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ISceneNodeAnimatorCameraMaya.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ISceneNodeAnimatorCollisionResponse.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ISceneNodeAnimatorFactory.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ISceneNodeFactory.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ISceneUserDataSerializer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IShaderConstantSetCallBack.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IShadowVolumeSceneNode.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ISkinnedMesh.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ITerrainSceneNode.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ITextSceneNode.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ITexture.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ITimer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\ITriangleSelector.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IVertexBuffer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IVideoDriver.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IVideoModeList.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IVolumeLightSceneNode.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IWriteFile.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IXMLReader.h" />
+    <ClInclude Include="ext\irrlicht-1.8\IXMLWriter.h" />
+    <ClInclude Include="ext\irrlicht-1.8\Keycodes.h" />
+    <ClInclude Include="ext\irrlicht-1.8\line2d.h" />
+    <ClInclude Include="ext\irrlicht-1.8\line3d.h" />
+    <ClInclude Include="ext\irrlicht-1.8\matrix4.h" />
+    <ClInclude Include="ext\irrlicht-1.8\path.h" />
+    <ClInclude Include="ext\irrlicht-1.8\plane3d.h" />
+    <ClInclude Include="ext\irrlicht-1.8\position2d.h" />
+    <ClInclude Include="ext\irrlicht-1.8\quaternion.h" />
+    <ClInclude Include="ext\irrlicht-1.8\rect.h" />
+    <ClInclude Include="ext\irrlicht-1.8\S3DVertex.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SAnimatedMesh.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SceneParameters.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SColor.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SExposedVideoData.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SIrrCreationParameters.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SKeyMap.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SLight.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SMaterial.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SMaterialLayer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SMesh.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SMeshBuffer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SMeshBufferLightMap.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SMeshBufferTangents.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SParticle.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SSharedMeshBuffer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SSkinMeshBuffer.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SVertexIndex.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SVertexManipulator.h" />
+    <ClInclude Include="ext\irrlicht-1.8\SViewFrustum.h" />
+    <ClInclude Include="ext\irrlicht-1.8\triangle3d.h" />
+    <ClInclude Include="ext\irrlicht-1.8\vector2d.h" />
+    <ClInclude Include="ext\irrlicht-1.8\vector3d.h" />
+    <ClInclude Include="inc\Core\ActionManager.h" />
+    <ClInclude Include="inc\Core\EnemyGenerator.h" />
+    <ClInclude Include="inc\Core\EventReceiver.h" />
+    <ClInclude Include="inc\Core\Global.h" />
+    <ClInclude Include="inc\Core\StateManager.h" />
+    <ClInclude Include="inc\GameStates\About.h" />
+    <ClInclude Include="inc\GameStates\AbstractState.h" />
+    <ClInclude Include="inc\GameStates\GameOver.h" />
+    <ClInclude Include="inc\GameStates\Help.h" />
+    <ClInclude Include="inc\GameStates\MainMenu.h" />
+    <ClInclude Include="inc\GameStates\NewGame.h" />
+    <ClInclude Include="inc\GameStates\Settings.h" />
+    <ClInclude Include="inc\GameUnits\Blinky.h" />
+    <ClInclude Include="inc\GameUnits\Clyde.h" />
+    <ClInclude Include="inc\GameUnits\Craft.h" />
+    <ClInclude Include="inc\GameUnits\Fighter.h" />
+    <ClInclude Include="inc\GameUnits\Inky.h" />
+    <ClInclude Include="inc\GameUnits\Pinky.h" />
+    <ClInclude Include="inc\GameUnits\Rocket.h" />
+    <ClInclude Include="inc\ParticleExplosion\CBillboardParticleDrawer.h" />
+    <ClInclude Include="inc\ParticleExplosion\CMain.h" />
+    <ClInclude Include="inc\ParticleExplosion\COrientedParticleDrawer.h" />
+    <ClInclude Include="inc\ParticleExplosion\CParticleDrawer.h" />
+    <ClInclude Include="inc\ParticleExplosion\CParticleEmitter.h" />
+    <ClInclude Include="inc\ParticleExplosion\CParticleSystem.h" />
+    <ClInclude Include="inc\ParticleExplosion\CTrailParticleDrawer.h" />
+    <ClInclude Include="inc\ParticleExplosion\Particle.h" />
+    <ClInclude Include="inc\SpaceBattle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="inc\ParticleExplosion\fig7_alpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Core\ActionManager.cpp" />
+    <ClCompile Include="src\Core\EnemyGenerator.cpp" />
+    <ClCompile Include="src\Core\EventReceiver.cpp" />
+    <ClCompile Include="src\Core\StateManager.cpp" />
+    <ClCompile Include="src\GameStates\About.cpp" />
+    <ClCompile Include="src\GameStates\AbstractState.cpp" />
+    <ClCompile Include="src\GameStates\GameOver.cpp" />
+    <ClCompile Include="src\GameStates\Help.cpp" />
+    <ClCompile Include="src\GameStates\MainMenu.cpp" />
+    <ClCompile Include="src\GameStates\NewGame.cpp" />
+    <ClCompile Include="src\GameStates\Settings.cpp" />
+    <ClCompile Include="src\GameUnits\Blinky.cpp" />
+    <ClCompile Include="src\GameUnits\Clyde.cpp" />
+    <ClCompile Include="src\GameUnits\Craft.cpp" />
+    <ClCompile Include="src\GameUnits\Fighter.cpp" />
+    <ClCompile Include="src\GameUnits\Inky.cpp" />
+    <ClCompile Include="src\GameUnits\Pinky.cpp" />
+    <ClCompile Include="src\GameUnits\Rocket.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\ParticleExplosion\CBillboardParticleDrawer.cpp" />
+    <ClCompile Include="src\ParticleExplosion\CMain.cpp" />
+    <ClCompile Include="src\ParticleExplosion\COrientedParticleDrawer.cpp" />
+    <ClCompile Include="src\ParticleExplosion\CParticleDrawer.cpp" />
+    <ClCompile Include="src\ParticleExplosion\CParticleEmitter.cpp" />
+    <ClCompile Include="src\ParticleExplosion\CParticleSystem.cpp" />
+    <ClCompile Include="src\ParticleExplosion\CTrailParticleDrawer.cpp" />
+    <ClCompile Include="src\SpaceBattle.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\</OutDir>
+    <IntDir>..\spacebattle\$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir)inc;$(ProjectDir)ext\irrlicht-1.8;$(ProjectDir)ext\audiere-1.9;$(ProjectDir)inc\Core;$(ProjectDir)inc\GameStates;$(ProjectDir)inc\GameUnits;$(ProjectDir)inc\ParticleExplosion;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)lib\irrlicht-1.8;$(ProjectDir)lib\audiere-1.9;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -22,15 +22,15 @@ ActionManager::ActionManager(IrrlichtDevice* dev, ISceneNode* root, Craft* f, SE
 	enemyRoot = scene->addEmptySceneNode(rootNode); //scene node that contains all enemy crafts
 
 	//open sound effects
-	rocketSound = OpenSoundEffect(audioDevice, "/rocket.wav", MULTIPLE);
+	rocketSound = OpenSoundEffect(audioDevice, "./res/sound/rocket.wav", MULTIPLE);
 	rocketSound->setPan(0);       // 0 Left, 1 Right
 	rocketSound->setPitchShift(1.5);
 
-	explosionSound = OpenSoundEffect(audioDevice, "/explosion.wav", MULTIPLE);
+	explosionSound = OpenSoundEffect(audioDevice, "./res/sound/explosion.wav", MULTIPLE);
 	explosionSound->setPan(0);       // 0 Left, 1 Right
 	explosionSound->setPitchShift(2.0);
 
-	IGUIFont* font = device->getGUIEnvironment()->getFont("/button_font.xml");
+	IGUIFont* font = device->getGUIEnvironment()->getFont("button_font.xml");
 	score = scene->addTextSceneNode(font, L"", SColor(100,255,255, 255), rootNode, vector3df(0,SH_SF - 20,0));
 	updateScore();
 

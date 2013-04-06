@@ -2,7 +2,7 @@
 
 Fighter::Fighter(IrrlichtDevice* dev, ISceneNode* parent, ISceneManager* scene, s32 id, vector3df pos, vector3df rot) 
 	: Craft(dev) {
-	IMesh* fighterMesh = scene->getMesh("/fighter.irrmesh");
+	IMesh* fighterMesh = scene->getMesh("fighter.irrmesh");
 	//aabbox3d<f32> box();
 	//fighterMesh->setBoundingBox(box);
 	craft = scene->addMeshSceneNode(fighterMesh, parent, NEWGAME_ELEMENT::NEWGAME_FIGHTER, pos, rot);
@@ -43,13 +43,13 @@ Fighter::Fighter(IrrlichtDevice* dev, ISceneNode* parent, ISceneManager* scene, 
 	//set up parameters for left turbine fire
 	right->setMaterialFlag(video::EMF_LIGHTING, false);
     right->setMaterialFlag(video::EMF_ZWRITE_ENABLE, false);
-    right->setMaterialTexture(0, device->getVideoDriver()->getTexture("/brightfire.jpg"));
+    right->setMaterialTexture(0, device->getVideoDriver()->getTexture("brightfire.jpg"));
     right->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR);
 
 	//set up parameters for right turbine fire
 	left->setMaterialFlag(video::EMF_LIGHTING, false);
     left->setMaterialFlag(video::EMF_ZWRITE_ENABLE, false);
-    left->setMaterialTexture(0, device->getVideoDriver()->getTexture("/brightfire.jpg"));
+    left->setMaterialTexture(0, device->getVideoDriver()->getTexture("brightfire.jpg"));
     left->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR);
 
 	//add left rocket
@@ -57,7 +57,7 @@ Fighter::Fighter(IrrlichtDevice* dev, ISceneNode* parent, ISceneManager* scene, 
 	RIGHT_ROCKET_ID = -101;
 
 	ISceneNode* leftRocket = scene->addMeshSceneNode(
-		scene->getMesh("/rocket.irrmesh"),
+		scene->getMesh("rocket.irrmesh"),
 		craft,
 		LEFT_ROCKET_ID,
 		vector3df(-16.5f, -7.8f, -10.5f),
@@ -65,7 +65,7 @@ Fighter::Fighter(IrrlichtDevice* dev, ISceneNode* parent, ISceneManager* scene, 
 
 	//add right rocket
 	ISceneNode* rightRocket = scene->addMeshSceneNode(
-		scene->getMesh("/rocket.irrmesh"),
+		scene->getMesh("rocket.irrmesh"),
 		craft,
 		RIGHT_ROCKET_ID,
 		vector3df(16.5f, -7.0f, -10.5f),
