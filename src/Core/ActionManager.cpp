@@ -22,11 +22,11 @@ ActionManager::ActionManager(IrrlichtDevice* dev, ISceneNode* root, Craft* f, SE
 	enemyRoot = scene->addEmptySceneNode(rootNode); //scene node that contains all enemy crafts
 
 	//open sound effects
-	rocketSound = OpenSoundEffect(audioDevice, "./res/sound/rocket.wav", MULTIPLE);
+	rocketSound = OpenSoundEffect(audioDevice, "../res/sound/rocket.wav", MULTIPLE);
 	rocketSound->setPan(0);       // 0 Left, 1 Right
 	rocketSound->setPitchShift(1.5);
 
-	explosionSound = OpenSoundEffect(audioDevice, "./res/sound/explosion.wav", MULTIPLE);
+	explosionSound = OpenSoundEffect(audioDevice, "../res/sound/explosion.wav", MULTIPLE);
 	explosionSound->setPan(0);       // 0 Left, 1 Right
 	explosionSound->setPitchShift(2.0);
 

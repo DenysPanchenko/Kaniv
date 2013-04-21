@@ -2,7 +2,7 @@
 
 EventReceiver::EventReceiver(IrrlichtDevice* dev, StateManager* st, SETTINGS_STRUCT* set) 
 	: device(dev), stateManager(st), SETTINGS(set){
-	pushButtonSound = OpenSoundEffect(audioDevice, "./res/sound/button.mp3", MULTIPLE);
+	pushButtonSound = OpenSoundEffect(audioDevice, "../res/sound/button.mp3", MULTIPLE);
 }
 
 EventReceiver::MouseState EventReceiver::getMouseState() const {

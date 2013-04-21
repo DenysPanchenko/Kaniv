@@ -28,23 +28,23 @@
     <Filter Include="ExternalDependencies">
       <UniqueIdentifier>{5be98905-6ea9-42a5-a2cf-c3ac295aca3f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Core">
-      <UniqueIdentifier>{5f0ec8a9-392a-45f5-816a-dc2743a41b87}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\GameUnits">
-      <UniqueIdentifier>{587ead09-e693-4b80-a13c-97745f6d4461}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\GameStates">
-      <UniqueIdentifier>{35d3cf99-7256-467a-9c0a-fca2983e13c3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\ParticleExplosion">
-      <UniqueIdentifier>{6ed67e15-0a7f-483e-a203-30b3bc0847b5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ExternalDependencies\irrlicht-1.8">
       <UniqueIdentifier>{1790fbba-2fd5-4682-afb2-d2660c50bbbe}</UniqueIdentifier>
     </Filter>
     <Filter Include="ExternalDependencies\audiere-1.9">
       <UniqueIdentifier>{cf385ab0-2d90-478a-aa8c-03b71b61493e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{d877402c-a433-4ae7-a90b-890b863283f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameStates">
+      <UniqueIdentifier>{8526f47d-44d4-4904-80bc-b586105b3a93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameUnits">
+      <UniqueIdentifier>{4415149f-f968-460c-a704-e7116423c311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ParticleExplosion">
+      <UniqueIdentifier>{af07fcab-0343-42f2-8955-d794d50e5528}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -688,86 +688,86 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Core\ActionManager.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\EnemyGenerator.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\EventReceiver.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\StateManager.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameUnits\Blinky.cpp">
-      <Filter>Source Files\GameUnits</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameUnits\Clyde.cpp">
-      <Filter>Source Files\GameUnits</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameUnits\Craft.cpp">
-      <Filter>Source Files\GameUnits</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameUnits\Fighter.cpp">
-      <Filter>Source Files\GameUnits</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameUnits\Inky.cpp">
-      <Filter>Source Files\GameUnits</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameUnits\Pinky.cpp">
-      <Filter>Source Files\GameUnits</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameUnits\Rocket.cpp">
-      <Filter>Source Files\GameUnits</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameStates\About.cpp">
-      <Filter>Source Files\GameStates</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameStates\AbstractState.cpp">
-      <Filter>Source Files\GameStates</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameStates\GameOver.cpp">
-      <Filter>Source Files\GameStates</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameStates\Help.cpp">
-      <Filter>Source Files\GameStates</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameStates\MainMenu.cpp">
-      <Filter>Source Files\GameStates</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameStates\NewGame.cpp">
-      <Filter>Source Files\GameStates</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameStates\Settings.cpp">
-      <Filter>Source Files\GameStates</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ParticleExplosion\CBillboardParticleDrawer.cpp">
-      <Filter>Source Files\ParticleExplosion</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ParticleExplosion\CMain.cpp">
-      <Filter>Source Files\ParticleExplosion</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ParticleExplosion\COrientedParticleDrawer.cpp">
-      <Filter>Source Files\ParticleExplosion</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ParticleExplosion\CParticleDrawer.cpp">
-      <Filter>Source Files\ParticleExplosion</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ParticleExplosion\CParticleEmitter.cpp">
-      <Filter>Source Files\ParticleExplosion</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ParticleExplosion\CParticleSystem.cpp">
-      <Filter>Source Files\ParticleExplosion</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ParticleExplosion\CTrailParticleDrawer.cpp">
-      <Filter>Source Files\ParticleExplosion</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SpaceBattle.cpp">
+    <ClCompile Include="..\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\main.cpp">
+    <ClCompile Include="..\src\SpaceBattle.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Core\StateManager.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Core\ActionManager.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Core\EnemyGenerator.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Core\EventReceiver.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameStates\About.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameStates\AbstractState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameStates\GameOver.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameStates\Help.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameStates\MainMenu.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameStates\NewGame.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameStates\Settings.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameUnits\Blinky.cpp">
+      <Filter>Source Files\GameUnits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameUnits\Clyde.cpp">
+      <Filter>Source Files\GameUnits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameUnits\Craft.cpp">
+      <Filter>Source Files\GameUnits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameUnits\Fighter.cpp">
+      <Filter>Source Files\GameUnits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameUnits\Inky.cpp">
+      <Filter>Source Files\GameUnits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameUnits\Pinky.cpp">
+      <Filter>Source Files\GameUnits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameUnits\Rocket.cpp">
+      <Filter>Source Files\GameUnits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleExplosion\CBillboardParticleDrawer.cpp">
+      <Filter>Source Files\ParticleExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleExplosion\CMain.cpp">
+      <Filter>Source Files\ParticleExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleExplosion\COrientedParticleDrawer.cpp">
+      <Filter>Source Files\ParticleExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleExplosion\CParticleDrawer.cpp">
+      <Filter>Source Files\ParticleExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleExplosion\CParticleEmitter.cpp">
+      <Filter>Source Files\ParticleExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleExplosion\CParticleSystem.cpp">
+      <Filter>Source Files\ParticleExplosion</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticleExplosion\CTrailParticleDrawer.cpp">
+      <Filter>Source Files\ParticleExplosion</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

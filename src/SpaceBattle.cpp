@@ -4,18 +4,18 @@ SpaceBattle::SpaceBattle(int argc, char** argv){
 	splashTime = 3500.f; //show splash screen 3.5 seconds
 	isSplashShown = false;
 
-	device = createDevice(video::EDT_OPENGL, //create irrlicht game device
+	device = createDevice(video::EDT_DIRECT3D9, //create irrlicht game device
 		dimension2d<u32>(SCREEN_WIDTH, SCREEN_HEIGHT),
-		32, true, false, false);
+		32, false, false, false);
 
 	driver = device->getVideoDriver();
 	scene = device->getSceneManager();
 	gui = device->getGUIEnvironment();
 
-	device->getFileSystem()->addFileArchive("./res/");
-	device->getFileSystem()->addZipFileArchive("./res/font.zip");
-	device->getFileSystem()->addZipFileArchive("./res/mesh.zip");
-	device->getFileSystem()->addZipFileArchive("./res/image.zip");
+	device->getFileSystem()->addFileArchive("../res/"); //add folder with resources
+	device->getFileSystem()->addZipFileArchive("../res/font.zip");
+	device->getFileSystem()->addZipFileArchive("../res/mesh.zip");
+	device->getFileSystem()->addZipFileArchive("../res/image.zip");
 
 	stateManager = new StateManager(device, &SETTINGS); //create state manager
 	if(stateManager) 

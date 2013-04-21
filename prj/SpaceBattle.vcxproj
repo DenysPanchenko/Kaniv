@@ -227,33 +227,33 @@
     <None Include="inc\ParticleExplosion\fig7_alpha.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Core\ActionManager.cpp" />
-    <ClCompile Include="src\Core\EnemyGenerator.cpp" />
-    <ClCompile Include="src\Core\EventReceiver.cpp" />
-    <ClCompile Include="src\Core\StateManager.cpp" />
-    <ClCompile Include="src\GameStates\About.cpp" />
-    <ClCompile Include="src\GameStates\AbstractState.cpp" />
-    <ClCompile Include="src\GameStates\GameOver.cpp" />
-    <ClCompile Include="src\GameStates\Help.cpp" />
-    <ClCompile Include="src\GameStates\MainMenu.cpp" />
-    <ClCompile Include="src\GameStates\NewGame.cpp" />
-    <ClCompile Include="src\GameStates\Settings.cpp" />
-    <ClCompile Include="src\GameUnits\Blinky.cpp" />
-    <ClCompile Include="src\GameUnits\Clyde.cpp" />
-    <ClCompile Include="src\GameUnits\Craft.cpp" />
-    <ClCompile Include="src\GameUnits\Fighter.cpp" />
-    <ClCompile Include="src\GameUnits\Inky.cpp" />
-    <ClCompile Include="src\GameUnits\Pinky.cpp" />
-    <ClCompile Include="src\GameUnits\Rocket.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\ParticleExplosion\CBillboardParticleDrawer.cpp" />
-    <ClCompile Include="src\ParticleExplosion\CMain.cpp" />
-    <ClCompile Include="src\ParticleExplosion\COrientedParticleDrawer.cpp" />
-    <ClCompile Include="src\ParticleExplosion\CParticleDrawer.cpp" />
-    <ClCompile Include="src\ParticleExplosion\CParticleEmitter.cpp" />
-    <ClCompile Include="src\ParticleExplosion\CParticleSystem.cpp" />
-    <ClCompile Include="src\ParticleExplosion\CTrailParticleDrawer.cpp" />
-    <ClCompile Include="src\SpaceBattle.cpp" />
+    <ClCompile Include="..\src\Core\ActionManager.cpp" />
+    <ClCompile Include="..\src\Core\EnemyGenerator.cpp" />
+    <ClCompile Include="..\src\Core\EventReceiver.cpp" />
+    <ClCompile Include="..\src\Core\StateManager.cpp" />
+    <ClCompile Include="..\src\GameStates\About.cpp" />
+    <ClCompile Include="..\src\GameStates\AbstractState.cpp" />
+    <ClCompile Include="..\src\GameStates\GameOver.cpp" />
+    <ClCompile Include="..\src\GameStates\Help.cpp" />
+    <ClCompile Include="..\src\GameStates\MainMenu.cpp" />
+    <ClCompile Include="..\src\GameStates\NewGame.cpp" />
+    <ClCompile Include="..\src\GameStates\Settings.cpp" />
+    <ClCompile Include="..\src\GameUnits\Blinky.cpp" />
+    <ClCompile Include="..\src\GameUnits\Clyde.cpp" />
+    <ClCompile Include="..\src\GameUnits\Craft.cpp" />
+    <ClCompile Include="..\src\GameUnits\Fighter.cpp" />
+    <ClCompile Include="..\src\GameUnits\Inky.cpp" />
+    <ClCompile Include="..\src\GameUnits\Pinky.cpp" />
+    <ClCompile Include="..\src\GameUnits\Rocket.cpp" />
+    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\ParticleExplosion\CBillboardParticleDrawer.cpp" />
+    <ClCompile Include="..\src\ParticleExplosion\CMain.cpp" />
+    <ClCompile Include="..\src\ParticleExplosion\COrientedParticleDrawer.cpp" />
+    <ClCompile Include="..\src\ParticleExplosion\CParticleDrawer.cpp" />
+    <ClCompile Include="..\src\ParticleExplosion\CParticleEmitter.cpp" />
+    <ClCompile Include="..\src\ParticleExplosion\CParticleSystem.cpp" />
+    <ClCompile Include="..\src\ParticleExplosion\CTrailParticleDrawer.cpp" />
+    <ClCompile Include="..\src\SpaceBattle.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <Keyword>Win32Proj</Keyword>
@@ -279,13 +279,18 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\</OutDir>
-    <IntDir>..\spacebattle\$(Configuration)\</IntDir>
-    <IncludePath>$(ProjectDir)inc;$(ProjectDir)ext\irrlicht-1.8;$(ProjectDir)ext\audiere-1.9;$(ProjectDir)inc\Core;$(ProjectDir)inc\GameStates;$(ProjectDir)inc\GameUnits;$(ProjectDir)inc\ParticleExplosion;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)lib\irrlicht-1.8;$(ProjectDir)lib\audiere-1.9;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)..\bin\</OutDir>
+    <IntDir>..\..\spacebattle\$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir)..\inc;$(ProjectDir)..\ext\irrlicht-1.8;$(ProjectDir)..\ext\audiere-1.9;$(ProjectDir)..\inc\Core;$(ProjectDir)..\inc\GameStates;$(ProjectDir)..\inc\GameUnits;$(ProjectDir)..\inc\ParticleExplosion;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib\irrlicht-1.8;$(ProjectDir)..\bin;$(ProjectDir)..\lib\audiere-1.9;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(VCInstallDir)atlmfc\src\mfc;$(VCInstallDir)atlmfc\src\mfcm;$(VCInstallDir)atlmfc\src\atl;$(VCInstallDir)crt\src;</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\bin\</OutDir>
+    <IntDir>..\..\spacebattle\$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir)..\inc;$(ProjectDir)..\ext\irrlicht-1.8;$(ProjectDir)..\ext\audiere-1.9;$(ProjectDir)..\inc\Core;$(ProjectDir)..\inc\GameStates;$(ProjectDir)..\inc\GameUnits;$(ProjectDir)..\inc\ParticleExplosion;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib\irrlicht-1.8;$(ProjectDir)..\lib\audiere-1.9;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -299,7 +304,11 @@
       <TargetMachine>MachineX86</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\lib\audiere-1.9;$(ProjectDir)..\lib\irrlicht-1.8;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -314,7 +323,11 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\lib\audiere-1.9;$(ProjectDir)..\lib\irrlicht-1.8;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
