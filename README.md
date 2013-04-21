@@ -15,6 +15,13 @@ Sources of resources:
 * Headlines and buttons: http://cooltext.com/
 * 3d models, game requrments and scenario: [XPN 2013][4].
 
+Screenshots
+-------------------------
+
+![splashscreen](./img/splashscreen.JPG)
+![mainmenu](./img/mainmenu.JPG)
+![newgame](./img/newgame.JPG)
+
 Feedback
 -------------------------
 Game created by Denis Panchenko actor07@ukr.net
