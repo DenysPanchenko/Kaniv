@@ -13,7 +13,7 @@ Sources of resources:
 
 * Sounds and music: http://www.freesound.org/
 * Headlines and buttons: http://cooltext.com/
-* 3d models, game requrments and scenario: [XPN 2013][4].
+* 3d models, game requirements and scenario: [XPN 2013][4].
 
 Screenshots
 -------------------------
